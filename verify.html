@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Verify Registration | PFA</title>
+
+    <!-- PFA CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animation.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+            <div class="logo-mark">P</div>
+            <div>P<span>FA</span></div>
+        </a>
+
+        <!-- Desktop Navigation -->
+
+        <nav class="desktop-nav">
+
+            <a href="index.html" class="nav-link">
+                Home
+            </a>
+
+            <a href="about.html" class="nav-link">
+                About
+            </a>
+
+            <a href="members.html" class="nav-link">
+                Members
+            </a>
+
+            <a href="matches.html" class="nav-link">
+                Matches
+            </a>
+
+            <a href="tournaments.html" class="nav-link">
+                Tournaments
+            </a>
+
+            <a href="notices.html" class="nav-link">
+                Notices
+            </a>
+
+            <a href="gallery.html" class="nav-link">
+                Gallery
+            </a>
+
+            <a href="certificates.html" class="nav-link">
+                Certificates
+            </a>
+
+            <a href="verify.html" class="nav-link active">
+                Verify
+            </a>
+
+            <a href="chat.html" class="nav-link">
+                Chat
+            </a>
+
+            <a href="login.html" class="btn btn-primary">
+                Login
+            </a>
+
+        </nav>
+
+        <!-- Mobile Menu -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MOBILE SIDEBAR
+===================================================== -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay">
+</div>
+
+
+<aside
+    class="mobile-sidebar"
+    id="mobileSidebar"
+>
+
+    <div class="sidebar-header">
+
+        <a
+            href="index.html"
+            class="sidebar-logo"
+        >
+            <div class="logo-mark">P</div>
+
+            <div>
+                P<span>FA</span>
+            </div>
+        </a>
+
+        <button
+            class="sidebar-close"
+            id="sidebarClose"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+        <a href="about.html">
+            ℹ️ About
+        </a>
+
+        <a href="members.html">
+            👥 Members
+        </a>
+
+        <a href="matches.html">
+            🏆 Matches
+        </a>
+
+        <a href="tournaments.html">
+            🥇 Tournaments
+        </a>
+
+        <a href="notices.html">
+            📢 Notices
+        </a>
+
+        <a href="gallery.html">
+            🖼️ Gallery
+        </a>
+
+        <a href="certificates.html">
+            📜 Certificates
+        </a>
+
+        <a href="verify.html" class="active">
+            ✓ Verify Registration
+        </a>
+
+        <a href="chat.html">
+            💬 Chat
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <a
+            href="login.html"
+            class="sidebar-login"
+        >
+            ⇥ Login
+        </a>
+
+        <div class="sidebar-footer">
+
+            <strong>PFA</strong>
+
+            <span>
+                Pen Fight Association
+            </span>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     VERIFICATION SECTION
+===================================================== -->
+
+<main>
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="verify-wrapper">
+
+                <div class="verify-card">
+
+                    <!-- Logo -->
+
+                    <div class="verify-logo">
+                        <div class="logo-mark">P</div>
+                    </div>
+
+
+                    <!-- Heading -->
+
+                    <h1>
+                        Verify Registration
+                    </h1>
+
+                    <p class="verify-subtitle">
+                        Check whether a PFA registration ID
+                        is officially registered.
+                    </p>
+
+
+                    <!-- Search Form -->
+
+                    <form
+                        id="verifyForm"
+                        class="form"
+                    >
+
+                        <div class="form-group">
+
+                            <label for="registrationId">
+                                Registration ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="registrationId"
+                                name="registrationId"
+                                placeholder="Example: PFA-20260828-7206"
+                                autocomplete="off"
+                                required
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            id="verifyButton"
+                            class="btn btn-primary btn-block"
+                        >
+                            Check Registration
+                        </button>
+
+                    </form>
+
+
+                    <!-- Message -->
+
+                    <div
+                        id="verifyMessage"
+                        class="alert"
+                        hidden
+                    ></div>
+
+
+                    <!-- Result -->
+
+                    <div
+                        id="verificationResult"
+                        class="verify-result"
+                        hidden
+                    >
+
+                        <div class="verify-status">
+                            <span class="verify-check">✓</span>
+
+                            <div>
+                                <strong>
+                                    Registration Verified
+                                </strong>
+
+                                <span>
+                                    Official PFA registration
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div class="verify-details">
+
+                            <div class="verify-detail">
+                                <span>Name</span>
+                                <strong id="resultName">
+                                    —
+                                </strong>
+                            </div>
+
+                            <div class="verify-detail">
+                                <span>Registration ID</span>
+                                <strong id="resultRegistrationId">
+                                    —
+                                </strong>
+                            </div>
+
+                            <div class="verify-detail">
+                                <span>Roll</span>
+                                <strong id="resultRoll">
+                                    —
+                                </strong>
+                            </div>
+
+                            <div class="verify-detail">
+                                <span>Team</span>
+                                <strong id="resultTeam">
+                                    —
+                                </strong>
+                            </div>
+
+                            <div class="verify-detail">
+                                <span>Role</span>
+                                <strong id="resultRole">
+                                    —
+                                </strong>
+                            </div>
+
+                            <div class="verify-detail">
+                                <span>Status</span>
+                                <strong id="resultStatus">
+                                    —
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Not Found -->
+
+                    <div
+                        id="verificationNotFound"
+                        class="verify-not-found"
+                        hidden
+                    >
+
+                        <div class="verify-error-icon">
+                            ×
+                        </div>
+
+                        <h3>
+                            Registration Not Found
+                        </h3>
+
+                        <p>
+                            This registration ID could not
+                            be found in the PFA database.
+                        </p>
+
+                    </div>
+
+
+                    <p class="verify-note">
+                        🔒 Only publicly safe registration
+                        information is displayed.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div>
+
+                <strong>PFA</strong>
+
+                <p>
+                    Pen Fight Association
+                </p>
+
+            </div>
+
+            <p>
+                © 2026 PFA. All rights reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="assets/js/app.js"></script>
+
+<script
+    type="module"
+    src="assets/js/verify.js">
+</script>
+
+</body>
+</html>

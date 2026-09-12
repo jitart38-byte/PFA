@@ -4,1083 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>PFA | Members</title>
+    <title>Members | PFA</title>
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animation.css">
 </head>
 
 <body>
 
-<style>
-.pfa-navbar {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 30px;
-    background: #fff;
-    border-bottom: 1px solid #e5e5e5;
-    position: relative;
-    z-index: 99999;
-}
+<header class="header">
+    <div class="container navbar">
 
-.pfa-navbar-logo {
-    text-decoration: none;
-    color: #111;
-    font-size: 26px;
-    font-weight: 900;
-}
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <div class="logo-mark">P</div>
+            <div>P<span>FA</span></div>
+        </a>
 
-.pfa-navbar-links {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="members.html" class="nav-link">Members</a>
+            <a href="matches.html" class="nav-link">Matches</a>
+            <a href="tournaments.html" class="nav-link">Tournaments</a>
+            <a href="notices.html" class="nav-link">Notices</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="certificates.html" class="nav-link">Certificates</a>
+            <a href="chat.html" class="nav-link">Chat</a>
+            <a href="login.html" class="btn btn-primary">Login</a>
+        </nav>
 
-.pfa-navbar-links a {
-    text-decoration: none;
-    color: #111;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 13px;
-    border-radius: 10px;
-    transition: .25s ease;
-}
+        <!-- Mobile Menu Button -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            ☰
+        </button>
 
-.pfa-navbar-links a:hover {
-    background: #f1f1f1;
-}
-
-.pfa-navbar-links a.active {
-    background: #111;
-    color: #fff;
-}
-
-.pfa-menu-toggle {
-    width: 45px;
-    height: 45px;
-    display: none;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5px;
-    border-radius: 10px;
-    position: relative;
-    z-index: 100000;
-}
-
-.pfa-menu-toggle span {
-    width: 27px;
-    height: 3px;
-    background: #111;
-    border-radius: 20px;
-    transition: .35s ease;
-}
-
-@media (max-width: 800px) {
-
-    .pfa-navbar {
-        height: 65px;
-        padding: 0 16px;
-    }
-
-    .pfa-menu-toggle {
-        display: flex;
-    }
-
-    .pfa-navbar-links {
-        position: absolute;
-        top: 65px;
-        left: 0;
-        width: 100%;
-
-        padding: 12px 16px 18px;
-
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-
-        background: rgba(255,255,255,.98);
-
-        box-shadow: 0 15px 35px rgba(0,0,0,.12);
-
-        border-bottom: 1px solid #ddd;
-
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-
-        transform: translateY(-15px);
-
-        transition:
-            opacity .3s ease,
-            transform .3s ease,
-            visibility .3s ease;
-    }
-
-    .pfa-navbar-links.pfa-open {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: translateY(0);
-    }
-
-    .pfa-navbar-links a {
-        width: 100%;
-        text-align: center;
-
-        padding: 13px;
-
-        opacity: 0;
-        transform: translateY(-8px);
-
-        transition:
-            opacity .25s ease,
-            transform .25s ease,
-            background .2s ease;
-    }
-
-    .pfa-navbar-links.pfa-open a {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .pfa-menu-toggle.pfa-active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .pfa-menu-toggle.pfa-active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .pfa-menu-toggle.pfa-active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-}
-</style>
-
-
-<header class="pfa-navbar">
-
-    <a href="index.html" class="pfa-navbar-logo">
-        PFA
-    </a>
-
-    <nav class="pfa-navbar-links" id="pfaNavigation">
-
-        <a href="index.html" class="active">Home</a>
-
-        <a href="members.html">Members</a>
-
-        <a href="about.html">About</a>
-
-        <a href="notices.html">Notices</a>
-
-        <a href="member-id.html">Member ID</a>
-
-        <a href="galary.html">Gallery</a>
-
-        <a href="admin.html">Admin</a>
-
-        <a href="matches.html">Matches</a>
-
-        <a href="Tornamnets.html">Tournaments</a>
-				<a href="https://pfac.base44.app">PFA Chat</a>
-
-    </nav>
-
-    <button
-        type="button"
-        class="pfa-menu-toggle"
-        id="pfaToggle"
-        aria-label="Toggle Menu">
-
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </button>
-
+    </div>
 </header>
 
 
-<script>
-const pfaToggle = document.getElementById("pfaToggle");
-const pfaNavigation = document.getElementById("pfaNavigation");
-
-pfaToggle.addEventListener("click", function () {
-
-    pfaNavigation.classList.toggle("pfa-open");
-    pfaToggle.classList.toggle("pfa-active");
-
-});
+<!-- Mobile Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 
-pfaNavigation.querySelectorAll("a").forEach(function(link) {
+<!-- Mobile Sidebar -->
+<aside class="mobile-sidebar" id="mobileSidebar">
 
-    link.addEventListener("click", function() {
+    <!-- Sidebar Header -->
+    <div class="sidebar-header">
 
-        pfaNavigation.classList.remove("pfa-open");
-        pfaToggle.classList.remove("pfa-active");
+        <a href="index.html" class="sidebar-logo">
+            <div class="logo-mark">P</div>
+            <div>P<span>FA</span></div>
+        </a>
 
-    });
+        <button class="sidebar-close" id="sidebarClose">
+            ×
+        </button>
 
-});
+    </div>
 
 
-document.addEventListener("click", function(e) {
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar-nav">
 
-    if (
-        !pfaNavigation.contains(e.target) &&
-        !pfaToggle.contains(e.target)
-    ) {
+        <a href="index.html" class="sidebar-link active">
+            <span class="sidebar-icon">⌂</span>
+            <span>Home</span>
+        </a>
 
-        pfaNavigation.classList.remove("pfa-open");
-        pfaToggle.classList.remove("pfa-active");
+        <a href="about.html" class="sidebar-link">
+            <span class="sidebar-icon">ⓘ</span>
+            <span>About</span>
+        </a>
 
-    }
+        <a href="members.html" class="sidebar-link">
+            <span class="sidebar-icon">♙</span>
+            <span>Members</span>
+        </a>
 
-});
-</script>
+        <a href="matches.html" class="sidebar-link">
+            <span class="sidebar-icon">⚔</span>
+            <span>Matches</span>
+        </a>
+
+        <a href="tournaments.html" class="sidebar-link">
+            <span class="sidebar-icon">🏆</span>
+            <span>Tournaments</span>
+        </a>
+
+        <a href="notices.html" class="sidebar-link">
+            <span class="sidebar-icon">▣</span>
+            <span>Notices</span>
+        </a>
+
+        <a href="gallery.html" class="sidebar-link">
+            <span class="sidebar-icon">▧</span>
+            <span>Gallery</span>
+        </a>
+
+        <a href="certificates.html" class="sidebar-link">
+            <span class="sidebar-icon">▤</span>
+            <span>Certificates</span>
+        </a>
+
+        <a href="chat.html" class="sidebar-link">
+            <span class="sidebar-icon">◌</span>
+            <span>Chat</span>
+        </a>
+
+    </nav>
+
+
+    <!-- Sidebar Bottom -->
+    <div class="sidebar-bottom">
+
+        <a href="login.html" class="sidebar-login">
+            <span>⇥</span>
+            Login
+        </a>
+
+        <div class="sidebar-footer">
+            <strong>PFA</strong>
+            <span>Pen Fight Association</span>
+        </div>
+
+    </div>
+
+</aside>
 
 
 <main>
 
-<section class="page-header">
-
-    <div class="hero-badge">
-        PFA DATABASE
-    </div>
-
-    <h1>Members</h1>
-
-    <p>
-        Official members of the Pen Fight Association.
-    </p>
-
-</section>
-
-
 <section class="section">
 
-    <div class="member-tools">
+    <div class="container">
 
-        <input
-            type="text"
-            id="memberSearch"
-            placeholder="Search member name or PFA ID..."
-            onkeyup="searchMembers()"
-        >
+        <div class="section-header">
+            <div class="hero-badge">PFA COMMUNITY</div>
 
-    </div>
+            <h2>Our Members</h2>
 
-
-    <div class="members-grid" id="membersGrid">
-
-
-<!-- MEMBER 01 — OWNER -->
-
-<div class="member-card owner-card">
-
-    <div class="member-number">
-        01
-    </div>
-
-    <div class="member-avatar">
-        Flash
-    </div>
-
-    <span class="member-status active">
-        ACTIVE
-    </span>
-
-    <span class="owner-badge">
-        👑 OWNER
-    </span>
-
-    <h3>DIPROJIT SARKAR SNIGDHO</h3>
-
-    <p class="member-id">
-        PFA-20260828-7206
-    </p>
-
-    <div class="member-info">
-        <span>Roll</span>
-        <strong>10</strong>
-    </div>
-
-    <div class="member-info">
-        <span>Role</span>
-        <strong>OWNER</strong>
-    </div>
-
-    <a href="member-id.html#member01" class="small-btn">
-        View ID
-    </a>
-
-</div>
-
-<!-- OWNER STYLE -->
-<style>
-
-.owner-card {
-    position: relative;
-    border: 2px solid #d71920;
-    overflow: hidden;
-}
-
-/* OWNER BADGE */
-.owner-badge {
-    display: inline-block;
-    margin: 8px auto;
-    padding: 6px 14px;
-
-    background: #d71920;
-    color: #ffffff;
-
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1px;
-
-    border-radius: 20px;
-}
-
-/* OWNER ROLE */
-.owner-card .member-info strong {
-    color: #d71920;
-    font-weight: 900;
-}
-
-/* OWNER NUMBER */
-.owner-card .member-number {
-    color: #d71920;
-    font-weight: 900;
-}
-
-/* OWNER BUTTON */
-.owner-card .small-btn {
-    background: #d71920;
-    color: #ffffff;
-}
-
-/* HOVER EFFECT */
-.owner-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(215, 25, 32, 0.20);
-}
-
-</style>
-
-
-<!-- MEMBER 02 — OWNER -->
-
-<div class="member-card owner-card">
-
-    <div class="member-number">02</div>
-
-    <div class="member-avatar">
-        Strike
-    </div>
-
-    <span class="member-status active">
-        ACTIVE
-    </span>
-
-    <span class="owner-badge">
-        👑 OWNER
-    </span>
-
-    <h3>Aditya Sharup Paul</h3>
-
-    <p class="member-id">
-        PFA-20260828-6210
-    </p>
-
-    <div class="member-info">
-        <span>Roll</span>
-        <strong>41</strong>
-    </div>
-
-    <div class="member-info">
-        <span>Role</span>
-        <strong>OWNER</strong>
-    </div>
-
-    <a href="member-id.html#member02" class="small-btn">
-        View ID
-    </a>
-
-</div>
-
-
-<!-- MEMBER 03 — MEMBER -->
-
-<div class="member-card">
-
-    <div class="member-number">
-        03
-    </div>
-
-    <div class="member-avatar">
-        Blaze
-    </div>
-
-    <span class="member-status active">
-        ACTIVE
-    </span>
-
-    <h3>Papon Saha</h3>
-
-    <p class="member-id">
-        PFA-682619
-    </p>
-
-    <div class="member-info">
-        <span>Roll</span>
-        <strong>07</strong>
-    </div>
-
-    <div class="member-info">
-        <span>Role</span>
-        <strong>Member</strong>
-    </div>
-
-    <a href="member-id.html#member03" class="small-btn">
-        View ID
-    </a>
-
-</div>
-
-
-<!-- OWNER CARD STYLE — NO EXTERNAL CSS NEEDED -->
-
-<style>
-
-.owner-card {
-    position: relative;
-    border: 2px solid #d71920;
-    overflow: hidden;
-}
-
-.owner-badge {
-    display: inline-block;
-    margin: 8px auto;
-    padding: 6px 14px;
-
-    background: #d71920;
-    color: #fff;
-
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1px;
-
-    border-radius: 20px;
-}
-
-.owner-card .member-info strong {
-    color: #d71920;
-    font-weight: 900;
-}
-
-.owner-card .member-number {
-    color: #d71920;
-    font-weight: 900;
-}
-
-.owner-card .small-btn {
-    background: #d71920;
-    color: #fff;
-}
-
-.owner-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(215, 25, 32, 0.20);
-}
-
-</style>
-
-
-        <!-- MEMBER 03 -->
-
-        <div class="member-card">
-            <div class="member-number">03</div>
-            <div class="member-avatar">Blaze</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>Papon Saha</h3>
-            <p class="member-id">PFA-682619</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>07</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member03" class="small-btn">View ID</a>
+            <p>
+                Meet the official members of Pen Fight Association.
+            </p>
         </div>
 
 
-        <!-- MEMBER 04 -->
+        <div class="grid grid-3" id="membersContainer">
 
-        <div class="member-card">
-            <div class="member-number">04</div>
-            <div class="member-avatar">Storm</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>Niloy Sen</h3>
-            <p class="member-id">PFA-546729</p>
+            <div class="card member-card">
+                <div class="member-avatar"
+                     style="background:#fff1f3; display:grid; place-items:center;">
+                    P
+                </div>
 
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>16</strong>
+                <h3>Diprojit Sarkar Snigdho</h3>
+
+                <p>Flash</p>
+
+                <span class="member-role">
+                    ACTIVE OWNER
+                </span>
             </div>
 
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
+
+            <div class="card member-card">
+
+                <div class="member-avatar"
+                     style="background:#fff1f3; display:grid; place-items:center;">
+                    A
+                </div>
+
+                <h3>Aditya Sharup Paul</h3>
+
+                <p>Strike</p>
+
+                <span class="member-role">
+                    ACTIVE OWNER
+                </span>
+
             </div>
 
-            <a href="member-id.html#member04" class="small-btn">View ID</a>
-        </div>
 
+            <div class="card member-card">
 
-        <!-- MEMBER 05 -->
+                <div class="member-avatar"
+                     style="background:#fff1f3; display:grid; place-items:center;">
+                    P
+                </div>
 
-        <div class="member-card">
-            <div class="member-number">05</div>
-            <div class="member-avatar">PFA</div>
-            <span class="member-status inactive">INACTIVE</span>
-            <h3>MEMBER FIVE</h3>
-            <p class="member-id">PFA-000005</p>
+                <h3>Papon Saha</h3>
 
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>05</strong>
+                <p>Blaze</p>
+
+                <span class="member-role">
+                    ACTIVE MEMBER
+                </span>
+
             </div>
 
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member05" class="small-btn">View ID</a>
-        </div>
-
-
-        <!-- MEMBER 06 -->
-
-        <div class="member-card">
-            <div class="member-number">06</div>
-            <div class="member-avatar">	Frost</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>Koushik Dass</h3>
-            <p class="member-id">PFA-20260901-5191</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>37</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member06" class="small-btn">View ID</a>
-        </div>
-
-
-        <!-- MEMBER 07 -->
-
-        <div class="member-card">
-            <div class="member-number">07</div>
-            <div class="member-avatar">Spark</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>Angkon Paul</h3>
-            <p class="member-id">PFA-20260901-8396</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>48</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member07" class="small-btn">View ID</a>
-        </div>
-
-
-        <!-- MEMBER 08 -->
-
-        <div class="member-card">
-            <div class="member-number">08</div>
-            <div class="member-avatar">Shadow</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>Aditto Datta</h3>
-            <p class="member-id">PFA-20260901-1888</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>18</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member08" class="small-btn">View ID</a>
-        </div>
-
-
-        <!-- MEMBER 09 -->
-
-        <div class="member-card">
-            <div class="member-number">09</div>
-            <div class="member-avatar">Force</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>Koushik Debnath</h3>
-            <p class="member-id">PFA-20260901-5867</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>24</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member09" class="small-btn">View ID</a>
-        </div>
-
-
-        <!-- MEMBER 10 -->
-
-        <div class="member-card">
-            <div class="member-number">10</div>
-            <div class="member-avatar">Wave</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>Sayon Chakraborty</h3>
-            <p class="member-id">PFA-20260901-2096</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>42</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member10" class="small-btn">View ID</a>
-        </div>
-
-
-        <!-- MEMBER 11 -->
-
-        <div class="member-card">
-            <div class="member-number">11</div>
-            <div class="member-avatar">PFA</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>MEMBER ELEVEN</h3>
-            <p class="member-id">PFA-000011</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>11</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member11" class="small-btn">View ID</a>
-        </div>
-
-<!--	Member 12 -->
-<div class="member-card owner-card">
-
-    <div class="member-number">
-        12
-    </div>
-
-    <div class="member-avatar">
-        Flame
-    </div>
-
-    <span class="member-status active">
-        ACTIVE
-    </span>
-
-    <span class="owner-badge">
-        👑 OWNER
-    </span>
-
-    <h3>Reshov Pal</h3>
-
-    <p class="member-id">
-        PFA-20260901-6667
-    </p>
-
-    <div class="member-info">
-        <span>Roll</span>
-        <strong>10</strong>
-    </div>
-
-    <div class="member-info">
-        <span>Role</span>
-        <strong>OWNER</strong>
-    </div>
-
-    <a href="member-id.html#member01" class="small-btn">
-        View ID
-    </a>
-
-</div>
-
-<!-- OWNER STYLE -->
-<style>
-
-.owner-card {
-    position: relative;
-    border: 2px solid #d71920;
-    overflow: hidden;
-}
-
-/* OWNER BADGE */
-.owner-badge {
-    display: inline-block;
-    margin: 8px auto;
-    padding: 6px 14px;
-
-    background: #d71920;
-    color: #ffffff;
-
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1px;
-
-    border-radius: 20px;
-}
-
-/* OWNER ROLE */
-.owner-card .member-info strong {
-    color: #d71920;
-    font-weight: 900;
-}
-
-/* OWNER NUMBER */
-.owner-card .member-number {
-    color: #d71920;
-    font-weight: 900;
-}
-
-/* OWNER BUTTON */
-.owner-card .small-btn {
-    background: #d71920;
-    color: #ffffff;
-}
-
-/* HOVER EFFECT */
-.owner-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(215, 25, 32, 0.20);
-}
-
-</style>
-	
-
-
-
-        <!-- MEMBER 13 -->
-
-        <div class="member-card">
-            <div class="member-number">13</div>
-            <div class="member-avatar">PFA</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>MEMBER THIRTEEN</h3>
-            <p class="member-id">PFA-000013</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>13</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member13" class="small-btn">View ID</a>
-        </div>
-
-
-<!-- =========================================
-     MEMBER 14 — ৳100 DONOR
-========================================= -->
-
-<div class="member-card donor-card">
-
-
-<div class="member-number">
-    14
-</div>
-
-<div class="member-avatar">
-    Pride
-</div>
-
-<span class="member-status active">
-    ACTIVE
-</span>
-
-<span class="donor-badge">
-    💰 ৳100 DONOR
-</span>
-
-<h3>Justin Delauney</h3>
-
-<p class="member-id">
-    PFA-20260901-4485
-</p>
-
-<div class="member-info">
-    <span>Roll</span>
-    <strong>49</strong>
-</div>
-
-<div class="member-info">
-    <span>Role</span>
-    <strong>DONOR</strong>
-</div>
-
-<div class="member-info">
-    <span>Donation</span>
-    <strong>৳100</strong>
-</div>
-
-<a href="member-id.html#member14" class="small-btn">
-    View ID
-</a>
-
-
-</div>
-
-<!-- =========================================
-     DONOR CARD CSS
-========================================= -->
-
-<style>
-
-.donor-card {
-    position: relative;
-    border: 2px solid #d71920;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-/* DONOR BADGE */
-
-.donor-badge {
-    display: inline-block;
-
-    margin: 8px auto;
-    padding: 6px 14px;
-
-    background: #d71920;
-    color: #ffffff;
-
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1px;
-
-    border-radius: 20px;
-}
-
-/* DONOR NUMBER */
-
-.donor-card .member-number {
-    color: #d71920;
-    font-weight: 900;
-}
-
-/* DONOR INFORMATION */
-
-.donor-card .member-info strong {
-    color: #d71920;
-    font-weight: 900;
-}
-
-/* DONOR BUTTON */
-
-.donor-card .small-btn {
-    background: #d71920;
-    color: #ffffff;
-}
-
-/* HOVER EFFECT */
-
-.donor-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 10px 30px rgba(215, 25, 32, 0.20);
-}
-
-</style>
-
-
-        <!-- MEMBER 15 -->
-
-        <div class="member-card">
-            <div class="member-number">15</div>
-            <div class="member-avatar">PFA</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>MEMBER FIFTEEN</h3>
-            <p class="member-id">PFA-000015</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>15</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member15" class="small-btn">View ID</a>
-        </div>
-
-
-        <!-- MEMBER 16 -->
-
-        <div class="member-card">
-            <div class="member-number">16</div>
-            <div class="member-avatar">PFA</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>MEMBER SIXTEEN</h3>
-            <p class="member-id">PFA-000016</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>16</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member16" class="small-btn">View ID</a>
-        </div>
-
-
-        <!-- MEMBER 17 -->
-
-        <div class="member-card">
-            <div class="member-number">17</div>
-            <div class="member-avatar">PFA</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>MEMBER SEVENTEEN</h3>
-            <p class="member-id">PFA-000017</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>17</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member17" class="small-btn">View ID</a>
-        </div>
-
-
-        <!-- MEMBER 18 -->
-
-        <div class="member-card">
-            <div class="member-number">18</div>
-            <div class="member-avatar">PFA</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>MEMBER EIGHTEEN</h3>
-            <p class="member-id">PFA-000018</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>18</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member18" class="small-btn">View ID</a>
-        </div>
-
-
-        <!-- MEMBER 19 -->
-
-        <div class="member-card">
-            <div class="member-number">19</div>
-            <div class="member-avatar">PFA</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>MEMBER NINETEEN</h3>
-            <p class="member-id">PFA-000019</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>19</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member19" class="small-btn">View ID</a>
-        </div>
-
-
-        <!-- MEMBER 20 -->
-
-        <div class="member-card">
-            <div class="member-number">20</div>
-            <div class="member-avatar">PFA</div>
-            <span class="member-status active">ACTIVE</span>
-            <h3>MEMBER TWENTY</h3>
-            <p class="member-id">PFA-000020</p>
-
-            <div class="member-info">
-                <span>Roll</span>
-                <strong>20</strong>
-            </div>
-
-            <div class="member-info">
-                <span>Role</span>
-                <strong>Member</strong>
-            </div>
-
-            <a href="member-id.html#member20" class="small-btn">View ID</a>
         </div>
 
     </div>
@@ -1090,14 +215,21 @@ document.addEventListener("click", function(e) {
 </main>
 
 
-<footer>
-    <div class="footer-logo">PFA</div>
-    <p>Pen Fight Association</p>
-    <p>© 2026 PFA. All rights reserved.</p>
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-bottom">
+            © 2026 Pen Fight Association.
+        </div>
+
+    </div>
+
 </footer>
 
 
-<script src="js/main.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/members.js"></script>
 
 </body>
 </html>

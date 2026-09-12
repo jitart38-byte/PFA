@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Matches | PFA</title>
+    <title>Tournaments | PFA</title>
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
@@ -13,7 +14,9 @@
 
 </head>
 
+
 <body>
+
 
 <!-- =====================================================
      HEADER
@@ -23,14 +26,25 @@
 
     <div class="container navbar">
 
+
         <!-- Logo -->
         <a href="index.html" class="logo">
-            <div class="logo-mark">P</div>
-            <div>P<span>FA</span></div>
+
+            <div class="logo-mark">
+                P
+            </div>
+
+            <div>
+                P<span>FA</span>
+            </div>
+
         </a>
 
 
-        <!-- Desktop Navigation -->
+        <!-- =================================================
+             DESKTOP NAVIGATION
+        ================================================== -->
+
         <nav class="desktop-nav">
 
             <a href="index.html" class="nav-link">
@@ -45,11 +59,14 @@
                 Members
             </a>
 
-            <a href="matches.html" class="nav-link active">
+            <a href="matches.html" class="nav-link">
                 Matches
             </a>
 
-            <a href="tournaments.html" class="nav-link">
+            <a
+                href="tournaments.html"
+                class="nav-link active"
+            >
                 Tournaments
             </a>
 
@@ -69,19 +86,25 @@
                 Chat
             </a>
 
-            <a href="login.html" class="btn btn-primary">
+            <a
+                href="login.html"
+                class="btn btn-primary"
+            >
                 Login
             </a>
 
         </nav>
 
 
-        <!-- Mobile Menu Button -->
+        <!-- =================================================
+             MOBILE MENU BUTTON
+        ================================================== -->
+
         <button
             class="menu-toggle"
             id="menuToggle"
-            aria-label="Open menu"
             type="button"
+            aria-label="Open menu"
         >
             ☰
         </button>
@@ -110,10 +133,14 @@
     id="mobileSidebar"
 >
 
+
     <!-- Sidebar Header -->
     <div class="sidebar-header">
 
-        <a href="index.html" class="sidebar-logo">
+        <a
+            href="index.html"
+            class="sidebar-logo"
+        >
 
             <div class="logo-mark">
                 P
@@ -138,10 +165,17 @@
     </div>
 
 
-    <!-- Sidebar Navigation -->
+    <!-- =================================================
+         SIDEBAR NAVIGATION
+    ================================================== -->
+
     <nav class="sidebar-nav">
 
-        <a href="index.html" class="sidebar-link">
+
+        <a
+            href="index.html"
+            class="sidebar-link"
+        >
 
             <span class="sidebar-icon">
                 ⌂
@@ -154,7 +188,10 @@
         </a>
 
 
-        <a href="about.html" class="sidebar-link">
+        <a
+            href="about.html"
+            class="sidebar-link"
+        >
 
             <span class="sidebar-icon">
                 ⓘ
@@ -167,7 +204,10 @@
         </a>
 
 
-        <a href="members.html" class="sidebar-link">
+        <a
+            href="members.html"
+            class="sidebar-link"
+        >
 
             <span class="sidebar-icon">
                 ♙
@@ -182,7 +222,7 @@
 
         <a
             href="matches.html"
-            class="sidebar-link active"
+            class="sidebar-link"
         >
 
             <span class="sidebar-icon">
@@ -196,7 +236,10 @@
         </a>
 
 
-        <a href="tournaments.html" class="sidebar-link">
+        <a
+            href="tournaments.html"
+            class="sidebar-link active"
+        >
 
             <span class="sidebar-icon">
                 🏆
@@ -209,7 +252,10 @@
         </a>
 
 
-        <a href="notices.html" class="sidebar-link">
+        <a
+            href="notices.html"
+            class="sidebar-link"
+        >
 
             <span class="sidebar-icon">
                 ▣
@@ -222,7 +268,10 @@
         </a>
 
 
-        <a href="gallery.html" class="sidebar-link">
+        <a
+            href="gallery.html"
+            class="sidebar-link"
+        >
 
             <span class="sidebar-icon">
                 ▧
@@ -235,7 +284,10 @@
         </a>
 
 
-        <a href="certificates.html" class="sidebar-link">
+        <a
+            href="certificates.html"
+            class="sidebar-link"
+        >
 
             <span class="sidebar-icon">
                 ▤
@@ -248,7 +300,10 @@
         </a>
 
 
-        <a href="chat.html" class="sidebar-link">
+        <a
+            href="chat.html"
+            class="sidebar-link"
+        >
 
             <span class="sidebar-icon">
                 ◌
@@ -263,8 +318,12 @@
     </nav>
 
 
-    <!-- Sidebar Bottom -->
+    <!-- =================================================
+         SIDEBAR BOTTOM
+    ================================================== -->
+
     <div class="sidebar-bottom">
+
 
         <a
             href="login.html"
@@ -298,50 +357,55 @@
 
 
 <!-- =====================================================
-     MAIN
+     MAIN CONTENT
 ===================================================== -->
 
 <main>
+
 
     <section class="section">
 
         <div class="container">
 
-            <!-- Section Header -->
+
+            <!-- =================================================
+                 SECTION HEADER
+            ================================================== -->
+
             <div class="section-header">
 
                 <div class="hero-badge">
-                    PFA MATCH CENTER
+                    PFA TOURNAMENTS
                 </div>
 
                 <h2>
-                    Matches
+                    Tournaments
                 </h2>
 
                 <p>
-                    Upcoming, live and completed PFA matches.
+                    Explore PFA tournaments, competitions and winners.
                 </p>
 
             </div>
 
 
             <!-- =================================================
-                 MATCH CONTAINER
+                 TOURNAMENT CONTAINER
+
+                 tournaments.js will automatically
+                 load tournament data here.
             ================================================== -->
 
-            <!--
-                matches.js will automatically load
-                match information here.
-            -->
-
             <div
-                class="grid grid-2"
-                id="matchesContainer"
+                class="grid grid-3"
+                id="tournamentsContainer"
             ></div>
+
 
         </div>
 
     </section>
+
 
 </main>
 
@@ -370,7 +434,10 @@
 ===================================================== -->
 
 <script src="assets/js/app.js"></script>
-<script src="assets/js/matches.js"></script>
+
+<script src="assets/js/tournaments.js"></script>
+
 
 </body>
+
 </html>
