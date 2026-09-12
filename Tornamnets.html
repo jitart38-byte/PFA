@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PFA | Tournaments</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
+
+<style>
+.pfa-navbar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+    z-index: 99999;
+}
+
+.pfa-navbar-logo {
+    text-decoration: none;
+    color: #111;
+    font-size: 26px;
+    font-weight: 900;
+}
+
+.pfa-navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.pfa-navbar-links a {
+    text-decoration: none;
+    color: #111;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 13px;
+    border-radius: 10px;
+    transition: .25s ease;
+}
+
+.pfa-navbar-links a:hover {
+    background: #f1f1f1;
+}
+
+.pfa-navbar-links a.active {
+    background: #111;
+    color: #fff;
+}
+
+.pfa-menu-toggle {
+    width: 45px;
+    height: 45px;
+    display: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 100000;
+}
+
+.pfa-menu-toggle span {
+    width: 27px;
+    height: 3px;
+    background: #111;
+    border-radius: 20px;
+    transition: .35s ease;
+}
+
+@media (max-width: 800px) {
+
+    .pfa-navbar {
+        height: 65px;
+        padding: 0 16px;
+    }
+
+    .pfa-menu-toggle {
+        display: flex;
+    }
+
+    .pfa-navbar-links {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+
+        padding: 12px 16px 18px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        background: rgba(255,255,255,.98);
+
+        box-shadow: 0 15px 35px rgba(0,0,0,.12);
+
+        border-bottom: 1px solid #ddd;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transform: translateY(-15px);
+
+        transition:
+            opacity .3s ease,
+            transform .3s ease,
+            visibility .3s ease;
+    }
+
+    .pfa-navbar-links.pfa-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .pfa-navbar-links a {
+        width: 100%;
+        text-align: center;
+
+        padding: 13px;
+
+        opacity: 0;
+        transform: translateY(-8px);
+
+        transition:
+            opacity .25s ease,
+            transform .25s ease,
+            background .2s ease;
+    }
+
+    .pfa-navbar-links.pfa-open a {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .pfa-menu-toggle.pfa-active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .pfa-menu-toggle.pfa-active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .pfa-menu-toggle.pfa-active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+</style>
+
+
+<header class="pfa-navbar">
+
+    <a href="index.html" class="pfa-navbar-logo">
+        PFA
+    </a>
+
+    <nav class="pfa-navbar-links" id="pfaNavigation">
+
+        <a href="index.html" class="active">Home</a>
+
+        <a href="members.html">Members</a>
+
+        <a href="about.html">About</a>
+
+        <a href="notices.html">Notices</a>
+
+        <a href="member-id.html">Member ID</a>
+
+        <a href="galary.html">Gallery</a>
+
+        <a href="admin.html">Admin</a>
+
+        <a href="matches.html">Matches</a>
+
+        <a href="Tornamnets.html">Tournaments</a>
+
+    </nav>
+
+    <button
+        type="button"
+        class="pfa-menu-toggle"
+        id="pfaToggle"
+        aria-label="Toggle Menu">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</header>
+
+
+<script>
+const pfaToggle = document.getElementById("pfaToggle");
+const pfaNavigation = document.getElementById("pfaNavigation");
+
+pfaToggle.addEventListener("click", function () {
+
+    pfaNavigation.classList.toggle("pfa-open");
+    pfaToggle.classList.toggle("pfa-active");
+
+});
+
+
+pfaNavigation.querySelectorAll("a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        pfaNavigation.classList.remove("pfa-open");
+        pfaToggle.classList.remove("pfa-active");
+
+    });
+
+});
+
+
+document.addEventListener("click", function(e) {
+
+    if (
+        !pfaNavigation.contains(e.target) &&
+        !pfaToggle.contains(e.target)
+    ) {
+
+        pfaNavigation.classList.remove("pfa-open");
+        pfaToggle.classList.remove("pfa-active");
+
+    }
+
+});
+</script>
+
+
+<!-- =====================================================
+     PAGE HEADER
+     ===================================================== -->
+
+<section class="page-header">
+
+    <div class="hero-content">
+
+        <span class="hero-badge">
+            PFA OFFICIAL
+        </span>
+
+        <h1>
+            PFA <span>Tournaments</span>
+        </h1>
+
+        <p>
+            Explore the official tournaments and competitions
+            of the Pen Fight Association.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TOURNAMENTS
+     ===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span>
+            COMPETITIONS
+        </span>
+
+        <h2>
+            Choose Your Tournament
+        </h2>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+        <!-- =================================================
+             CHAMPIONS CUP
+             ================================================= -->
+
+        <a href="champions-cup.html"
+           class="feature-card">
+
+            <div class="feature-icon">
+                🏆
+            </div>
+
+            <h3>
+                PFA Champions Cup
+            </h3>
+
+            <p>
+                The main championship tournament of the
+                Pen Fight Association.
+            </p>
+
+            <br>
+
+            <span class="btn primary">
+                View Tournament →
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             ELITE CUP
+             ================================================= -->
+
+        <a href="elite-cup.html"
+           class="feature-card">
+
+            <div class="feature-icon">
+                ⚡
+            </div>
+
+            <h3>
+                PFA Elite Cup
+            </h3>
+
+            <p>
+                A competitive tournament featuring some of
+                the strongest PFA players.
+            </p>
+
+            <br>
+
+            <span class="btn primary">
+                View Tournament →
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             SUPER CUP
+             ================================================= -->
+
+        <a href="super-cup.html"
+           class="feature-card">
+
+            <div class="feature-icon">
+                👑
+            </div>
+
+            <h3>
+                PFA Super Cup
+            </h3>
+
+            <p>
+                A special championship bringing together
+                top PFA competitors.
+            </p>
+
+            <br>
+
+            <span class="btn primary">
+                View Tournament →
+            </span>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+     ===================================================== -->
+
+<section class="cta">
+
+    <h2>
+        Ready for the Fight?
+    </h2>
+
+    <p>
+        Enter the arena. Compete. Win. Become a PFA champion.
+    </p>
+
+    <a href="member-id.html"
+       class="btn secondary">
+
+        View members →
+
+    </a>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        PFA.
+    </div>
+
+    <p>
+        Pen Fight Association
+    </p>
+
+    <p>
+        © 2026 PFA. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     MOBILE MENU
+     ===================================================== -->
+
+<script>
+
+function toggleMenu() {
+
+    const nav = document.querySelector(".navbar nav");
+
+    nav.classList.toggle("show");
+
+}
+
+</script>
+
+
+</body>
+</html>
+

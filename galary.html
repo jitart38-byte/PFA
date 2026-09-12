@@ -1,0 +1,1581 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PFA | Members</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f7;
+            color: #111;
+        }
+
+
+        /* =====================================
+           NAVBAR
+           ===================================== */
+
+        .pfa-navbar {
+            width: 100%;
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 30px;
+
+            background: #fff;
+
+            border-bottom: 1px solid #e5e5e5;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 9999;
+        }
+
+        .pfa-logo {
+            text-decoration: none;
+
+            font-size: 27px;
+            font-weight: 900;
+
+            color: #111;
+        }
+
+        .pfa-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .pfa-nav a {
+            text-decoration: none;
+
+            color: #111;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            padding: 10px 13px;
+
+            border-radius: 9px;
+
+            transition: .25s ease;
+        }
+
+        .pfa-nav a:hover {
+            background: #f1f1f1;
+        }
+
+        .pfa-nav a.active {
+            background: #111;
+            color: #fff;
+        }
+
+
+        /* =====================================
+           MOBILE MENU
+           ===================================== */
+
+        .menu-button {
+            width: 44px;
+            height: 44px;
+
+            border: none;
+            background: transparent;
+
+            display: none;
+
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            gap: 5px;
+
+            cursor: pointer;
+        }
+
+        .menu-button span {
+            width: 27px;
+            height: 3px;
+
+            background: #111;
+
+            border-radius: 20px;
+
+            transition: .3s ease;
+        }
+
+
+        /* =====================================
+           PAGE HEADER
+           ===================================== */
+
+        .page-header {
+            text-align: center;
+
+            padding: 80px 20px 60px;
+
+            background: #fff;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 8px 15px;
+
+            border-radius: 30px;
+
+            background: #111;
+            color: #fff;
+
+            font-size: 11px;
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 18px;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+
+            font-weight: 900;
+
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            color: #777;
+
+            font-size: 15px;
+        }
+
+
+        /* =====================================
+           MAIN
+           ===================================== */
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 60px 0;
+        }
+
+
+        /* =====================================
+           SECTION HEADER
+           ===================================== */
+
+        .section-header {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 25px;
+
+            padding-bottom: 15px;
+
+            border-bottom: 2px solid #eee;
+        }
+
+        .section-header h2 {
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .section-header span {
+            font-size: 12px;
+            font-weight: 800;
+
+            color: #777;
+        }
+
+
+        /* =====================================
+           MEMBER GRID
+           ===================================== */
+
+        .member-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 22px;
+
+            margin-bottom: 65px;
+        }
+
+
+        /* =====================================
+           NORMAL MEMBER CARD
+           ===================================== */
+
+        .member-card {
+            position: relative;
+
+            background: #fff;
+
+            border: 1px solid #e5e5e5;
+
+            border-radius: 18px;
+
+            padding: 28px 22px;
+
+            text-align: center;
+
+            transition: .3s ease;
+
+            overflow: hidden;
+        }
+
+        .member-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,.08);
+        }
+
+        .member-number {
+            position: absolute;
+
+            top: 15px;
+            left: 15px;
+
+            font-size: 11px;
+
+            color: #999;
+
+            font-weight: 900;
+        }
+
+        .member-avatar {
+            width: 75px;
+            height: 75px;
+
+            margin: 10px auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #111;
+
+            color: #fff;
+
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .member-card h3 {
+            font-size: 19px;
+
+            margin-bottom: 8px;
+        }
+
+        .member-id {
+            color: #777;
+
+            font-size: 12px;
+
+            margin-bottom: 20px;
+        }
+
+        .member-info {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+        }
+
+        .info {
+            padding: 7px 10px;
+
+            background: #f2f2f2;
+
+            border-radius: 8px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+        }
+
+
+        /* =====================================
+           OWNER SECTION
+           ===================================== */
+
+        .owners-section {
+            margin-bottom: 70px;
+        }
+
+        .owners-title {
+            color: #d71920;
+        }
+
+        .owner-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    #0b0b0b,
+                    #220306
+                );
+
+            border: 1px solid #d71920;
+
+            color: #fff;
+
+            box-shadow:
+                0 12px 35px rgba(215,25,32,.16);
+        }
+
+        .owner-card:hover {
+            box-shadow:
+                0 18px 45px rgba(215,25,32,.28);
+        }
+
+        .owner-card .member-number {
+            color: #888;
+        }
+
+        .owner-card .member-avatar {
+            background: #d71920;
+
+            box-shadow:
+                0 0 0 5px rgba(215,25,32,.12);
+        }
+
+        .owner-card h3 {
+            color: #fff;
+        }
+
+        .owner-card .member-id {
+            color: #aaa;
+        }
+
+        .owner-card .info {
+            background: rgba(255,255,255,.09);
+
+            color: #fff;
+
+            border: 1px solid rgba(255,255,255,.08);
+        }
+
+        .owner-badge {
+            display: inline-block;
+
+            background: #d71920;
+
+            color: #fff;
+
+            padding: 7px 13px;
+
+            border-radius: 30px;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 4px;
+        }
+
+
+        /* =====================================
+           DONATOR SECTION
+           ===================================== */
+
+        .donators-section {
+            margin-bottom: 70px;
+        }
+
+        .donators-title {
+            color: #111;
+        }
+
+        .donator-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #eeeeee
+                );
+
+            border: 1px solid #d71920;
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,.08);
+        }
+
+        .donator-card:hover {
+            box-shadow:
+                0 18px 40px rgba(215,25,32,.18);
+        }
+
+        .donator-card .member-avatar {
+            background: #111;
+
+            box-shadow:
+                0 0 0 5px rgba(0,0,0,.06);
+        }
+
+        .donator-card .member-id {
+            color: #777;
+        }
+
+        .donator-card .info {
+            background: #111;
+
+            color: #fff;
+        }
+
+        .donator-badge {
+            display: inline-block;
+
+            background: #d71920;
+
+            color: #fff;
+
+            padding: 7px 13px;
+
+            border-radius: 30px;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 4px;
+        }
+
+        .donation {
+            color: #d71920 !important;
+        }
+
+
+        /* =====================================
+           NORMAL MEMBERS SECTION
+           ===================================== */
+
+        .members-title {
+            color: #111;
+        }
+
+
+        /* =====================================
+           STATUS
+           ===================================== */
+
+        .status {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 6px 11px;
+
+            border-radius: 20px;
+
+            font-size: 9px;
+
+            font-weight: 900;
+
+            letter-spacing: .5px;
+        }
+
+        .active {
+            background: #e8f8ed;
+
+            color: #16833b;
+        }
+
+        .inactive {
+            background: #f1f1f1;
+
+            color: #777;
+        }
+
+
+        /* =====================================
+           FOOTER
+           ===================================== */
+
+        footer {
+            background: #111;
+
+            color: #fff;
+
+            text-align: center;
+
+            padding: 45px 20px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+
+            font-weight: 900;
+
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            color: #aaa;
+
+            font-size: 12px;
+
+            margin-top: 7px;
+        }
+
+
+        /* =====================================
+           MOBILE
+           ===================================== */
+
+        @media (max-width: 800px) {
+
+            .pfa-navbar {
+                height: 65px;
+
+                padding: 0 16px;
+            }
+
+            .menu-button {
+                display: flex;
+            }
+
+            .pfa-nav {
+                position: absolute;
+
+                top: 65px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 12px 16px 18px;
+
+                background: #fff;
+
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 5px;
+
+                border-bottom: 1px solid #ddd;
+
+                box-shadow:
+                    0 15px 35px rgba(0,0,0,.1);
+
+                opacity: 0;
+
+                visibility: hidden;
+
+                pointer-events: none;
+
+                transform: translateY(-15px);
+
+                transition: .3s ease;
+            }
+
+            .pfa-nav.open {
+                opacity: 1;
+
+                visibility: visible;
+
+                pointer-events: auto;
+
+                transform: translateY(0);
+            }
+
+            .pfa-nav a {
+                width: 100%;
+
+                text-align: center;
+
+                padding: 13px;
+            }
+
+            .page-header {
+                padding: 60px 20px 45px;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .container {
+                width: 90%;
+
+                padding: 40px 0;
+            }
+
+            .member-grid {
+                grid-template-columns: 1fr;
+
+                gap: 18px;
+
+                margin-bottom: 50px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVBAR
+     ===================================== -->
+
+<header class="pfa-navbar">
+
+    <a href="index.html" class="pfa-logo">
+        PFA
+    </a>
+
+
+    <nav class="pfa-nav" id="pfaNav">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="members.html" class="active">
+            Members
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="notices.html">
+            Notices
+        </a>
+
+        <a href="member-id.html">
+            Member ID
+        </a>
+
+        <a href="galary.html">
+            Gallery
+        </a>
+
+        <a href="admin.html">
+            Admin
+        </a>
+
+        <a href="matches.html">
+            Matches
+        </a>
+
+        <a href="Tornamnets.html">
+            Tournaments
+        </a>
+
+    </nav>
+
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open menu">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</header>
+
+
+
+<!-- =====================================
+     PAGE HEADER
+     ===================================== -->
+
+<section class="page-header">
+
+    <div class="badge">
+        PFA MEMBERS
+    </div>
+
+    <h1>
+        Members
+    </h1>
+
+    <p>
+        Meet the members of the Pen Fight Association.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================
+     CONTENT
+     ===================================== -->
+
+<div class="container">
+
+
+    <!-- =================================
+         OWNERS
+         ================================= -->
+
+    <section class="owners-section">
+
+        <div class="section-header">
+
+            <h2 class="owners-title">
+                👑 Owners
+            </h2>
+
+            <span>
+                3 MEMBERS
+            </span>
+
+        </div>
+
+
+        <div class="member-grid">
+
+
+<!-- OWNER 01 -->
+
+<div class="member-card owner-card">
+
+    <div class="member-number">
+        01
+    </div>
+
+    <span class="owner-badge">
+        👑 OWNER
+    </span>
+
+    <div class="member-avatar">
+        FLASH
+    </div>
+
+    <h3>
+        Diprojit Sarkar Snigdho
+    </h3>
+
+    <p class="member-id">
+        PFA-20260828-7206
+    </p>
+
+    <div class="member-info">
+
+        <span class="info">
+            Roll 10
+        </span>
+
+        <span class="info">
+            ACTIVE
+        </span>
+
+    </div>
+
+    <!-- REGISTRATION PDF -->
+
+    <div class="member-id-pdf">
+
+<!-- PFA ANIMATED PDF BUTTON -->
+    <div class="member-id-pdf">
+
+        <a href="gallery/PFA-DSS-10.pdf"
+           target="_blank"
+           class="pdf-button">
+            📄 Open Registration PDF
+        </a>
+
+    </div>
+
+
+<style>
+
+/* ============================= */
+/*      PFA PDF BUTTON            */
+/* ============================= */
+
+.member-id-pdf {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.pdf-button {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 12px 20px;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #d90429,
+        #ef233c,
+        #b00020
+    );
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    box-shadow:
+        0 6px 18px rgba(217,4,41,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.25);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* ✨ Moving Shine */
+
+.pdf-button::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    animation: pdf-shine 3s infinite;
+}
+
+
+/* 🚀 Hover Effect */
+
+.pdf-button:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 12px 30px rgba(217,4,41,0.55),
+        0 0 20px rgba(239,35,60,0.4);
+}
+
+
+/* 🖱️ Click Effect */
+
+.pdf-button:active {
+    transform: translateY(-1px) scale(0.97);
+}
+
+
+/* 📄 PDF Icon */
+
+.pdf-icon {
+    font-size: 16px;
+
+    animation: pdf-bounce 2s ease-in-out infinite;
+}
+
+
+/* ➡️ Arrow */
+
+.pdf-arrow {
+    font-size: 18px;
+    line-height: 1;
+
+    transition: transform 0.3s ease;
+}
+
+.pdf-button:hover .pdf-arrow {
+    transform: translateX(6px);
+}
+
+
+/* ✨ Shine Animation */
+
+@keyframes pdf-shine {
+
+    0% {
+        left: -120%;
+    }
+
+    45%,
+    100% {
+        left: 140%;
+    }
+
+}
+
+
+/* 📄 Icon Animation */
+
+@keyframes pdf-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+
+}
+
+
+/* 📱 Mobile */
+
+@media (max-width: 480px) {
+
+    .pdf-button {
+        padding: 11px 16px;
+        font-size: 12px;
+    }
+
+}
+
+</style>
+
+    </div>
+
+</div>
+            <!-- OWNER 02 -->
+
+            <div class="member-card owner-card">
+
+                <div class="member-number">
+                    02
+                </div>
+
+                <span class="owner-badge">
+                    👑 OWNER
+                </span>
+
+                <div class="member-avatar">
+                    STRIKE
+                </div>
+
+                <h3>
+                    Aditya Sharup Paul
+                </h3>
+
+                <p class="member-id">
+                    PFA-20260828-6210
+                </p>
+
+                <div class="member-info">
+
+                    <span class="info">
+                        OWNER
+                    </span>
+
+                    <span class="info">
+                        ACTIVE
+                    </span>
+
+                </div>
+				    <!-- REGISTRATION PDF -->
+
+    <div class="member-id-pdf">
+
+        <a href="gallery/PFA-ASP-41.pdf"
+           target="_blank"
+           class="pdf-button">
+            📄 Open Registration PDF
+        </a>
+
+    </div>
+
+            </div>
+
+
+
+            <!-- OWNER 12 -->
+
+            <div class="member-card owner-card">
+
+                <div class="member-number">
+                    12
+                </div>
+
+                <span class="owner-badge">
+                    👑 OWNER
+                </span>
+
+                <div class="member-avatar">
+                    PFA
+                </div>
+
+                <h3>
+                    Reshov Pal
+                </h3>
+
+                <p class="member-id">
+                    PFA-20260901-6667
+                </p>
+
+                <div class="member-info">
+
+                    <span class="info">
+                        OWNER
+                    </span>
+
+                    <span class="info">
+                        ACTIVE
+                    </span>
+
+                </div>
+				    <!-- REGISTRATION PDF -->
+
+    <div class="member-id-pdf">
+
+        <a href="gallery/PFA-RP-12.pdf"
+           target="_blank"
+           class="pdf-button">
+            📄 Open Registration PDF
+        </a>
+
+    </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         DONATORS
+         ================================= -->
+
+    <section class="donators-section">
+
+        <div class="section-header">
+
+            <h2 class="donators-title">
+                💰 Donators
+            </h2>
+
+            <span>
+                1 DONATOR
+            </span>
+
+        </div>
+
+
+        <div class="member-grid">
+
+
+            <!-- DONATOR 14 -->
+
+            <div class="member-card donator-card">
+
+                <div class="member-number">
+                    14
+                </div>
+
+                <span class="donator-badge">
+                    💰 DONATOR
+                </span>
+
+                <div class="member-avatar">
+                    PRIDE
+                </div>
+
+                <h3>
+                    Justin Delauney
+                </h3>
+
+                <p class="member-id">
+                    PFA-20260901-4485
+                </p>
+
+                <div class="member-info">
+
+                    <span class="info">
+                        ACTIVE
+                    </span>
+
+                    <span class="info donation">
+                        ৳100 DONATION
+                    </span>
+
+                </div>
+				    <!-- REGISTRATION PDF -->
+
+    <div class="member-id-pdf">
+
+        <a href="gallery/PFA-JD-49.pdf"
+           target="_blank"
+           class="pdf-button">
+            📄 Open Registration PDF
+        </a>
+
+    </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         OTHER MEMBERS
+         ================================= -->
+
+    <section>
+
+        <div class="section-header">
+
+            <h2 class="members-title">
+                👤 Members
+            </h2>
+
+            <span>
+                GENERAL MEMBERS
+            </span>
+
+        </div>
+
+
+        <div class="member-grid">
+
+
+            <!-- MEMBER -->
+
+            <div class="member-card">
+
+                <div class="member-number">
+                    03
+                </div>
+
+                <div class="member-avatar">
+                    PAPON
+                </div>
+
+                <h3>
+                    Papon Saha
+                </h3>
+
+                <p class="member-id">
+                    PFA-20260828-5002
+                </p>
+
+                <div class="member-info">
+
+                    <span class="info">
+                        ACTIVE
+                    </span>
+
+                </div>
+
+                <span class="status active">
+                    ACTIVE
+                </span>
+				        <a href="gallery/PFA-PS-07.pdf"
+           target="_blank"
+           class="pdf-button">
+            📄 Open Registration PDF
+        </a>
+
+            </div>
+
+
+
+            <!-- MEMBER -->
+
+            <div class="member-card">
+
+                <div class="member-number">
+                    04
+                </div>
+
+                <div class="member-avatar">
+                    NS
+                </div>
+
+                <h3>
+                    Niloy Sen
+                </h3>
+
+                <p class="member-id">
+                    PFA-20260830-4854
+                </p>
+
+                <div class="member-info">
+
+                    <span class="info">
+                        ACTIVE
+                    </span>
+
+                </div>
+
+                <span class="status active">
+                    ACTIVE
+                </span>
+				        <a href="gallery/PFA-NS-16.pdf"
+           target="_blank"
+           class="pdf-button">
+            📄 Open Registration PDF
+        </a>
+
+            </div>
+
+
+
+            <!-- MEMBER -->
+
+            <div class="member-card">
+
+                <div class="member-number">
+                    06
+                </div>
+
+                <div class="member-avatar">
+                    KD
+                </div>
+
+                <h3>
+                    Koushik Dass
+                </h3>
+
+                <p class="member-id">
+                    PFA-20260901-5191
+                </p>
+
+                <div class="member-info">
+
+                    <span class="info">
+                        ACTIVE
+                    </span>
+
+                </div>
+
+                <span class="status active">
+                    ACTIVE
+                </span>
+				        <a href="gallery/PFA-KD-37.pdf"
+           target="_blank"
+           class="pdf-button">
+            📄 Open Registration PDF
+        </a>
+
+            </div>
+
+
+
+            <!-- MEMBER -->
+
+            <div class="member-card">
+
+                <div class="member-number">
+                    07
+                </div>
+
+                <div class="member-avatar">
+                    AP
+                </div>
+
+                <h3>
+                    Angkon Paul
+                </h3>
+
+                <p class="member-id">
+                    PFA-20260901-8396
+                </p>
+
+                <div class="member-info">
+
+                    <span class="info">
+                        ACTIVE
+                    </span>
+
+                </div>
+
+                <span class="status active">
+                    ACTIVE
+                </span>
+				        <a href="gallery/PFA-AP-48.pdf"
+           target="_blank"
+           class="pdf-button">
+            📄 Open Registration PDF
+        </a>
+
+            </div>
+
+
+
+            <!-- MEMBER -->
+
+            <div class="member-card">
+
+                <div class="member-number">
+                    08
+                </div>
+
+                <div class="member-avatar">
+                    AD
+                </div>
+
+                <h3>
+                    Aditta Datta
+                </h3>
+
+                <p class="member-id">
+                    PFA-20260901-1888
+                </p>
+
+                <div class="member-info">
+
+                    <span class="info">
+                        ACTIVE
+                    </span>
+
+                </div>
+
+                <span class="status active">
+                    ACTIVE
+                </span>
+				        <a href="gallery/PFA-AD-18.pdf"
+           target="_blank"
+           class="pdf-button">
+            📄 Open Registration PDF
+        </a>
+
+            </div>
+
+
+
+            <!-- MEMBER -->
+
+            <div class="member-card">
+
+                <div class="member-number">
+                    09
+                </div>
+
+                <div class="member-avatar">
+                    KD
+                </div>
+
+                <h3>
+                    Koushik Devnath
+                </h3>
+
+                <p class="member-id">
+                    PFA-20260901-5867
+                </p>
+
+                <div class="member-info">
+
+                    <span class="info">
+                        ACTIVE
+                    </span>
+
+                </div>
+
+                <span class="status active">
+                    ACTIVE
+                </span>
+				        <a href="gallery/PFA-KD-24.pdf"
+           target="_blank"
+           class="pdf-button">
+            📄 Open Registration PDF
+        </a>
+
+            </div>
+
+
+
+            <!-- MEMBER -->
+
+            <div class="member-card">
+
+                <div class="member-number">
+                    10
+                </div>
+
+                <div class="member-avatar">
+                    SC
+                </div>
+
+                <h3>
+                    Sayon Chakrobort
+                </h3>
+
+                <p class="member-id">
+                    PFA-20260901-2096
+                </p>
+
+                <div class="member-info">
+
+                    <span class="info">
+                        ACTIVE
+                    </span>
+
+                </div>
+
+                <span class="status active">
+                    ACTIVE
+                </span>
+				        <a href="gallery/PFA-SC-42.pdf"
+           target="_blank"
+           class="pdf-button">
+            📄 Open Registration PDF
+        </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+
+<!-- =====================================
+     FOOTER
+     ===================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        PFA
+    </div>
+
+    <p>
+        Pen Fight Association
+    </p>
+
+    <p>
+        © 2026 PFA. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+     ===================================== -->
+
+<script>
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const pfaNav =
+    document.getElementById("pfaNav");
+
+
+menuButton.addEventListener(
+    "click",
+    function () {
+
+        pfaNav.classList.toggle("open");
+
+    }
+);
+
+
+pfaNav.querySelectorAll("a").forEach(
+    function(link) {
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                pfaNav.classList.remove("open");
+
+            }
+        );
+
+    }
+);
+
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            !pfaNav.contains(event.target) &&
+            !menuButton.contains(event.target)
+        ) {
+
+            pfaNav.classList.remove("open");
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
+

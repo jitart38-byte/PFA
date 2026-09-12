@@ -1,0 +1,1858 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PFA | Matches</title>
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f7;
+            color: #111;
+        }
+
+        button,
+        a {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .pfa-navbar {
+            width: 100%;
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 30px;
+
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+        }
+
+        .pfa-navbar-logo {
+            text-decoration: none;
+            color: #111;
+
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .pfa-navbar-logo span {
+            color: #e50914;
+        }
+
+        .pfa-navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .pfa-navbar-links a {
+            text-decoration: none;
+            color: #111;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            padding: 10px 13px;
+            border-radius: 10px;
+
+            transition: .25s ease;
+        }
+
+        .pfa-navbar-links a:hover {
+            background: #f1f1f1;
+        }
+
+        .pfa-navbar-links a.active {
+            background: #111;
+            color: #fff;
+        }
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        .pfa-menu-toggle {
+            width: 44px;
+            height: 44px;
+
+            display: none;
+
+            border: 0;
+            background: transparent;
+
+            cursor: pointer;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+            gap: 5px;
+
+            border-radius: 10px;
+        }
+
+        .pfa-menu-toggle:hover {
+            background: #f1f1f1;
+        }
+
+        .pfa-menu-toggle span {
+            width: 26px;
+            height: 3px;
+
+            background: #111;
+            border-radius: 20px;
+
+            transition: .3s ease;
+        }
+
+
+        /* =====================================================
+           PAGE HEADER
+        ===================================================== */
+
+        .page-header {
+            background: #111;
+            color: #fff;
+
+            text-align: center;
+
+            padding: 70px 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            padding: 8px 14px;
+
+            border: 1px solid #e50914;
+            border-radius: 999px;
+
+            color: #ff303a;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 18px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(38px, 7vw, 65px);
+            line-height: 1;
+            letter-spacing: -2px;
+
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: #bbb;
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           MATCH PAGE
+        ===================================================== */
+
+        .matches-page {
+            padding: 60px 0 80px;
+        }
+
+        .matches-container {
+            width: min(1100px, calc(100% - 32px));
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           FILTERS
+        ===================================================== */
+
+        .match-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            margin-bottom: 40px;
+        }
+
+        .match-filter {
+            border: 1px solid #ddd;
+
+            background: #fff;
+            color: #555;
+
+            padding: 11px 18px;
+
+            border-radius: 999px;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: .25s ease;
+        }
+
+        .match-filter:hover {
+            border-color: #111;
+            color: #111;
+        }
+
+        .match-filter.active {
+            background: #e50914;
+            color: #fff;
+            border-color: #e50914;
+        }
+
+
+        /* =====================================================
+           MATCH SECTION
+        ===================================================== */
+
+        .match-section {
+            margin-bottom: 50px;
+        }
+
+        .match-section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 18px;
+        }
+
+        .match-section-title h2 {
+            font-size: 25px;
+            letter-spacing: -.7px;
+        }
+
+        .match-section-title span {
+            color: #999;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =====================================================
+           MATCH CARD
+        ===================================================== */
+
+        .match-card {
+            position: relative;
+
+            background: #fff;
+
+            border: 1px solid #e5e5e5;
+            border-radius: 18px;
+
+            padding: 25px;
+
+            margin-bottom: 16px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,.05);
+
+            overflow: hidden;
+
+            transition: .3s ease;
+        }
+
+        .match-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,.09);
+        }
+
+        .match-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 4px;
+            height: 100%;
+
+            background: #e50914;
+        }
+
+
+        /* =====================================================
+           MATCH TOP
+        ===================================================== */
+
+        .match-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 24px;
+        }
+
+        .match-type {
+            color: #e50914;
+
+            font-size: 11px;
+            font-weight: 900;
+
+            letter-spacing: .8px;
+
+            text-transform: uppercase;
+        }
+
+        .match-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+
+            padding: 7px 11px;
+
+            border-radius: 999px;
+
+            font-size: 10px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+        }
+
+        .status-live {
+            color: #fff;
+            background: #e50914;
+        }
+
+        .status-upcoming {
+            color: #111;
+            background: #eee;
+        }
+
+        .status-completed {
+            color: #fff;
+            background: #15803d;
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+
+            background: #fff;
+
+            border-radius: 50%;
+
+            animation: livePulse 1.2s infinite;
+        }
+
+        @keyframes livePulse {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .3;
+                transform: scale(.65);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           TEAMS
+        ===================================================== */
+
+        .match-teams {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                100px
+                minmax(0, 1fr);
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .match-team {
+            text-align: center;
+        }
+
+        .team-logo {
+            width: 68px;
+            height: 68px;
+
+            margin: 0 auto 11px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #111;
+            color: #fff;
+
+            border-radius: 50%;
+
+            font-size: 21px;
+            font-weight: 900;
+
+            border: 3px solid #f1f1f1;
+        }
+
+        .match-team h3 {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .match-team p {
+            color: #999;
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           SCORE
+        ===================================================== */
+
+        .match-vs {
+            text-align: center;
+        }
+
+        .match-vs strong {
+            display: block;
+
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .match-vs span {
+            display: block;
+
+            margin-top: 5px;
+
+            color: #999;
+
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .live-score {
+            color: #e50914;
+        }
+
+
+        /* =====================================================
+           SCORE DISPLAY
+        ===================================================== */
+
+        .team-score {
+            margin-top: 7px;
+
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .team-score small {
+            color: #999;
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           MATCH BOTTOM
+        ===================================================== */
+
+        .match-bottom {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr
+                1fr;
+
+            gap: 15px;
+
+            margin-top: 25px;
+
+            padding-top: 18px;
+
+            border-top: 1px solid #eee;
+        }
+
+        .match-info {
+            color: #777;
+
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .match-info strong {
+            display: block;
+
+            color: #111;
+
+            font-size: 12px;
+
+            margin-bottom: 2px;
+        }
+
+        .match-result {
+            text-align: right;
+
+            color: #15803d;
+
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           NO MATCHES
+        ===================================================== */
+
+        .no-matches {
+            display: none;
+
+            padding: 55px 20px;
+
+            background: #fff;
+
+            border: 1px solid #e5e5e5;
+            border-radius: 18px;
+
+            text-align: center;
+
+            color: #999;
+        }
+
+        .no-matches.show {
+            display: block;
+        }
+
+        .no-matches strong {
+            display: block;
+
+            color: #111;
+
+            font-size: 18px;
+
+            margin-bottom: 7px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding: 45px 20px;
+
+            background: #111;
+            color: #fff;
+
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 30px;
+            font-weight: 900;
+
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            color: #999;
+
+            font-size: 12px;
+
+            margin-top: 5px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .pfa-navbar {
+                height: 65px;
+                padding: 0 16px;
+            }
+
+            .pfa-menu-toggle {
+                display: flex;
+            }
+
+            .pfa-navbar-links {
+
+                position: absolute;
+
+                top: 65px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 12px 16px 18px;
+
+                display: flex;
+                flex-direction: column;
+
+                gap: 5px;
+
+                background: #fff;
+
+                border-bottom: 1px solid #ddd;
+
+                box-shadow:
+                    0 15px 35px rgba(0,0,0,.12);
+
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+
+                transform: translateY(-15px);
+
+                transition:
+                    opacity .25s ease,
+                    transform .3s ease,
+                    visibility .3s ease;
+            }
+
+            .pfa-navbar-links.pfa-open {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+
+                transform: translateY(0);
+            }
+
+            .pfa-navbar-links a {
+                width: 100%;
+
+                text-align: center;
+
+                padding: 13px;
+            }
+
+            .pfa-menu-toggle.pfa-active span:nth-child(1) {
+                transform:
+                    translateY(8px)
+                    rotate(45deg);
+            }
+
+            .pfa-menu-toggle.pfa-active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .pfa-menu-toggle.pfa-active span:nth-child(3) {
+                transform:
+                    translateY(-8px)
+                    rotate(-45deg);
+            }
+
+            .page-header {
+                padding: 55px 20px;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .matches-page {
+                padding: 45px 0 65px;
+            }
+
+            .match-card {
+                padding: 20px 16px;
+            }
+
+            .match-teams {
+                grid-template-columns:
+                    minmax(0, 1fr)
+                    55px
+                    minmax(0, 1fr);
+
+                gap: 8px;
+            }
+
+            .team-logo {
+                width: 54px;
+                height: 54px;
+
+                font-size: 16px;
+            }
+
+            .match-team h3 {
+                font-size: 14px;
+            }
+
+            .match-team p {
+                font-size: 10px;
+            }
+
+            .team-score {
+                font-size: 17px;
+            }
+
+            .match-bottom {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .match-result {
+                text-align: left;
+            }
+
+            .match-section-title h2 {
+                font-size: 21px;
+            }
+        }
+
+
+        @media (max-width: 400px) {
+
+            .pfa-navbar-logo {
+                font-size: 23px;
+            }
+
+            .match-vs strong {
+                font-size: 18px;
+            }
+
+            .match-vs span {
+                font-size: 9px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="pfa-navbar">
+
+    <a href="index.html"
+       class="pfa-navbar-logo">
+        P<span>F</span>A
+    </a>
+
+    <nav class="pfa-navbar-links"
+         id="pfaNavigation">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="members.html">
+            Members
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="notices.html">
+            Notices
+        </a>
+
+        <a href="member-id.html">
+            Member ID
+        </a>
+
+        <a href="galary.html">
+            Gallery
+        </a>
+
+        <a href="admin.html">
+            Admin
+        </a>
+
+        <a href="matches.html"
+           class="active">
+            Matches
+        </a>
+
+        <a href="Tornamnets.html">
+            Tournaments
+        </a>
+
+    </nav>
+
+
+    <button
+        type="button"
+        class="pfa-menu-toggle"
+        id="pfaToggle"
+        aria-label="Open menu"
+        aria-expanded="false">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</header>
+
+
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<section class="page-header">
+
+    <div class="hero-badge">
+        PFA MATCH CENTER
+    </div>
+
+    <h1>
+        Matches
+    </h1>
+
+    <p>
+        Follow PFA matches, results and upcoming fixtures.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     MATCHES
+===================================================== -->
+
+<main class="matches-page">
+
+<div class="matches-container">
+
+
+    <!-- =================================================
+         FILTERS
+    ================================================= -->
+
+    <div class="match-filters">
+
+        <button
+            class="match-filter active"
+            onclick="filterMatches('all', this)">
+
+            All
+
+        </button>
+
+
+        <button
+            class="match-filter"
+            onclick="filterMatches('upcoming', this)">
+
+            Upcoming
+
+        </button>
+
+
+        <button
+            class="match-filter"
+            onclick="filterMatches('live', this)">
+
+            Live
+
+        </button>
+
+
+        <button
+            class="match-filter"
+            onclick="filterMatches('completed', this)">
+
+            Completed
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =================================================
+         LIVE MATCHES
+    ================================================= -->
+
+    <section
+        class="match-section"
+        data-section="live">
+
+        <div class="match-section-title">
+
+            <h2>
+                🔴 Live Matches
+            </h2>
+
+            <span>
+                LIVE NOW
+            </span>
+
+        </div>
+
+
+        <!-- =========================
+             LIVE MATCH 01
+        ========================== -->
+
+        <div
+            class="match-card"
+            data-status="live">
+
+            <div class="match-top">
+
+                <span class="match-type">
+                    PFA Championship
+                </span>
+
+                <span class="match-status status-live">
+
+                    <span class="live-dot"></span>
+
+                    Live
+
+                </span>
+
+            </div>
+
+
+            <div class="match-teams">
+
+
+                <div class="match-team">
+
+                    <div class="team-logo">
+                        P
+                    </div>
+
+                    <h3>
+                        PFA Tigers
+                    </h3>
+
+                    <p>
+                        Team A
+                    </p>
+
+                    <div class="team-score">
+                        8
+                    </div>
+
+                </div>
+
+
+
+                <div class="match-vs">
+
+                    <strong class="live-score">
+                        VS
+                    </strong>
+
+                    <span>
+                        ROUND 01
+                    </span>
+
+                </div>
+
+
+
+                <div class="match-team">
+
+                    <div class="team-logo">
+                        F
+                    </div>
+
+                    <h3>
+                        PFA Falcons
+                    </h3>
+
+                    <p>
+                        Team B
+                    </p>
+
+                    <div class="team-score">
+                        6
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="match-bottom">
+
+                <div class="match-info">
+
+                    <strong>
+                        📅 Date & Time
+                    </strong>
+
+                    September 2, 2026 • 5:00 PM
+
+                </div>
+
+
+                <div class="match-info">
+
+                    <strong>
+                        📍 Venue
+                    </strong>
+
+                    PFA Arena
+
+                </div>
+
+
+                <div class="match-result">
+
+                    ⚡ MATCH IN PROGRESS
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         UPCOMING
+    ================================================= -->
+
+    <section
+        class="match-section"
+        data-section="upcoming">
+
+        <div class="match-section-title">
+
+            <h2>
+                Upcoming Matches
+            </h2>
+
+            <span>
+                FIXTURES
+            </span>
+
+        </div>
+
+
+
+        <!-- =========================
+             UPCOMING MATCH 01
+        ========================== -->
+
+        <div
+            class="match-card"
+            data-status="upcoming">
+
+            <div class="match-top">
+
+                <span class="match-type">
+                    PFA Championship
+                </span>
+
+                <span class="match-status status-upcoming">
+                    Upcoming
+                </span>
+
+            </div>
+
+
+            <div class="match-teams">
+
+                <div class="match-team">
+
+                    <div class="team-logo">
+                        S
+                    </div>
+
+                    <h3>
+                        PFA Strikers
+                    </h3>
+
+                    <p>
+                        Team C
+                    </p>
+
+                </div>
+
+
+                <div class="match-vs">
+
+                    <strong>
+                        VS
+                    </strong>
+
+                    <span>
+                        ROUND 02
+                    </span>
+
+                </div>
+
+
+                <div class="match-team">
+
+                    <div class="team-logo">
+                        R
+                    </div>
+
+                    <h3>
+                        PFA Royals
+                    </h3>
+
+                    <p>
+                        Team D
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="match-bottom">
+
+                <div class="match-info">
+
+                    <strong>
+                        📅 Date & Time
+                    </strong>
+
+                    September 3, 2026 • 5:00 PM
+
+                </div>
+
+
+                <div class="match-info">
+
+                    <strong>
+                        📍 Venue
+                    </strong>
+
+                    PFA Arena
+
+                </div>
+
+
+                <div class="match-info">
+
+                    <strong>
+                        🏆 Competition
+                    </strong>
+
+                    PFA Championship
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             UPCOMING MATCH 02
+        ========================== -->
+
+        <div
+            class="match-card"
+            data-status="upcoming">
+
+            <div class="match-top">
+
+                <span class="match-type">
+                    PFA League
+                </span>
+
+                <span class="match-status status-upcoming">
+                    Upcoming
+                </span>
+
+            </div>
+
+
+            <div class="match-teams">
+
+                <div class="match-team">
+
+                    <div class="team-logo">
+                        E
+                    </div>
+
+                    <h3>
+                        PFA Eagles
+                    </h3>
+
+                    <p>
+                        Team E
+                    </p>
+
+                </div>
+
+
+                <div class="match-vs">
+
+                    <strong>
+                        VS
+                    </strong>
+
+                    <span>
+                        ROUND 03
+                    </span>
+
+                </div>
+
+
+                <div class="match-team">
+
+                    <div class="team-logo">
+                        B
+                    </div>
+
+                    <h3>
+                        PFA Blazers
+                    </h3>
+
+                    <p>
+                        Team F
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="match-bottom">
+
+                <div class="match-info">
+
+                    <strong>
+                        📅 Date & Time
+                    </strong>
+
+                    September 4, 2026 • 4:30 PM
+
+                </div>
+
+
+                <div class="match-info">
+
+                    <strong>
+                        📍 Venue
+                    </strong>
+
+                    PFA Main Ground
+
+                </div>
+
+
+                <div class="match-info">
+
+                    <strong>
+                        🏆 Competition
+                    </strong>
+
+                    PFA League
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         COMPLETED
+    ================================================= -->
+
+    <section
+        class="match-section"
+        data-section="completed">
+
+        <div class="match-section-title">
+
+            <h2>
+                Recent Results
+            </h2>
+
+            <span>
+                RESULTS
+            </span>
+
+        </div>
+
+
+
+        <!-- =========================
+             COMPLETED MATCH 01
+        ========================== -->
+
+        <div
+            class="match-card"
+            data-status="completed">
+
+            <div class="match-top">
+
+                <span class="match-type">
+                    PFA Championship
+                </span>
+
+                <span class="match-status status-completed">
+                    Completed
+                </span>
+
+            </div>
+
+
+            <div class="match-teams">
+
+                <div class="match-team">
+
+                    <div class="team-logo">
+                        D
+                    </div>
+
+                    <h3>
+                        PFA Dragons
+                    </h3>
+
+                    <p>
+                        Team G
+                    </p>
+
+                    <div class="team-score">
+                        10
+                    </div>
+
+                </div>
+
+
+                <div class="match-vs">
+
+                    <strong>
+                        VS
+                    </strong>
+
+                    <span>
+                        FINAL
+                    </span>
+
+                </div>
+
+
+                <div class="match-team">
+
+                    <div class="team-logo">
+                        W
+                    </div>
+
+                    <h3>
+                        PFA Warriors
+                    </h3>
+
+                    <p>
+                        Team H
+                    </p>
+
+                    <div class="team-score">
+                        7
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="match-bottom">
+
+                <div class="match-info">
+
+                    <strong>
+                        📅 Date & Time
+                    </strong>
+
+                    August 31, 2026 • 5:00 PM
+
+                </div>
+
+
+                <div class="match-info">
+
+                    <strong>
+                        📍 Venue
+                    </strong>
+
+                    PFA Arena
+
+                </div>
+
+
+                <div class="match-result">
+
+                    🏆 PFA Dragons WON
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             COMPLETED MATCH 02
+        ========================== -->
+
+        <div
+            class="match-card"
+            data-status="completed">
+
+            <div class="match-top">
+
+                <span class="match-type">
+                    PFA League
+                </span>
+
+                <span class="match-status status-completed">
+                    Completed
+                </span>
+
+            </div>
+
+
+            <div class="match-teams">
+
+                <div class="match-team">
+
+                    <div class="team-logo">
+                        C
+                    </div>
+
+                    <h3>
+                        PFA Chargers
+                    </h3>
+
+                    <p>
+                        Team I
+                    </p>
+
+                    <div class="team-score">
+                        5
+                    </div>
+
+                </div>
+
+
+                <div class="match-vs">
+
+                    <strong>
+                        VS
+                    </strong>
+
+                    <span>
+                        FINAL
+                    </span>
+
+                </div>
+
+
+                <div class="match-team">
+
+                    <div class="team-logo">
+                        K
+                    </div>
+
+                    <h3>
+                        PFA Kings
+                    </h3>
+
+                    <p>
+                        Team J
+                    </p>
+
+                    <div class="team-score">
+                        8
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="match-bottom">
+
+                <div class="match-info">
+
+                    <strong>
+                        📅 Date & Time
+                    </strong>
+
+                    August 30, 2026 • 4:00 PM
+
+                </div>
+
+
+                <div class="match-info">
+
+                    <strong>
+                        📍 Venue
+                    </strong>
+
+                    PFA Main Ground
+
+                </div>
+
+
+                <div class="match-result">
+
+                    🏆 PFA Kings WON
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         NO MATCHES
+    ================================================= -->
+
+    <div
+        class="no-matches"
+        id="noMatches">
+
+        <strong>
+            No Matches Found
+        </strong>
+
+        There are currently no matches in this category.
+
+    </div>
+
+
+</div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        PFA
+    </div>
+
+    <p>
+        Pen Fight Association
+    </p>
+
+    <p>
+        © 2026 PFA. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    /* =====================================================
+       MOBILE NAVBAR
+    ===================================================== */
+
+    const pfaToggle =
+        document.getElementById("pfaToggle");
+
+    const pfaNavigation =
+        document.getElementById("pfaNavigation");
+
+
+    pfaToggle.addEventListener("click", function () {
+
+        const opened =
+            pfaNavigation.classList.toggle("pfa-open");
+
+        pfaToggle.classList.toggle(
+            "pfa-active",
+            opened
+        );
+
+        pfaToggle.setAttribute(
+            "aria-expanded",
+            opened ? "true" : "false"
+        );
+
+    });
+
+
+    /* CLOSE AFTER LINK CLICK */
+
+    pfaNavigation
+        .querySelectorAll("a")
+        .forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                pfaNavigation.classList.remove(
+                    "pfa-open"
+                );
+
+                pfaToggle.classList.remove(
+                    "pfa-active"
+                );
+
+                pfaToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+
+    /* CLOSE WHEN CLICKING OUTSIDE */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !pfaNavigation.contains(event.target) &&
+                !pfaToggle.contains(event.target)
+            ) {
+
+                pfaNavigation.classList.remove(
+                    "pfa-open"
+                );
+
+                pfaToggle.classList.remove(
+                    "pfa-active"
+                );
+
+                pfaToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* RESET ON DESKTOP */
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            if (window.innerWidth > 800) {
+
+                pfaNavigation.classList.remove(
+                    "pfa-open"
+                );
+
+                pfaToggle.classList.remove(
+                    "pfa-active"
+                );
+
+                pfaToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       MATCH FILTER
+    ===================================================== */
+
+    function filterMatches(status, button) {
+
+        const cards =
+            document.querySelectorAll(
+                ".match-card"
+            );
+
+        const sections =
+            document.querySelectorAll(
+                ".match-section"
+            );
+
+        const buttons =
+            document.querySelectorAll(
+                ".match-filter"
+            );
+
+        const noMatches =
+            document.getElementById(
+                "noMatches"
+            );
+
+
+        /* Active button */
+
+        buttons.forEach(function (btn) {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+
+        let visibleCards = 0;
+
+
+        /* Filter cards */
+
+        cards.forEach(function (card) {
+
+            if (
+                status === "all" ||
+                card.dataset.status === status
+            ) {
+
+                card.style.display = "";
+
+                visibleCards++;
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+
+        /* Hide empty sections */
+
+        sections.forEach(function (section) {
+
+            const visible =
+                section.querySelector(
+                    '.match-card:not([style*="display: none"])'
+                );
+
+            if (visible) {
+
+                section.style.display = "";
+
+            } else {
+
+                section.style.display = "none";
+
+            }
+
+        });
+
+
+        /* No matches message */
+
+        if (visibleCards === 0) {
+
+            noMatches.classList.add("show");
+
+        } else {
+
+            noMatches.classList.remove("show");
+
+        }
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
+

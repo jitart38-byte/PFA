@@ -1,0 +1,2343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PFA | Member IDs</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animation.css">
+
+
+<style>
+
+/* =========================================================
+   PFA NAVBAR
+========================================================= */
+
+.pfa-navbar {
+    width: 100%;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    position: relative;
+    z-index: 99999;
+}
+
+.pfa-navbar-logo {
+    text-decoration: none;
+
+    color: #d71920;
+
+    font-size: 27px;
+    font-weight: 950;
+
+    letter-spacing: -1px;
+}
+
+.pfa-navbar-links {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+}
+
+.pfa-navbar-links a {
+    text-decoration: none;
+
+    color: #111;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    padding: 10px 13px;
+
+    border-radius: 10px;
+
+    transition: .25s ease;
+}
+
+.pfa-navbar-links a:hover {
+    background: #f1f1f1;
+}
+
+.pfa-navbar-links a.active {
+    background: #d71920;
+    color: #fff;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.pfa-menu-toggle {
+
+    width: 45px;
+    height: 45px;
+
+    display: none;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    border-radius: 10px;
+
+    position: relative;
+
+    z-index: 100000;
+}
+
+.pfa-menu-toggle span {
+
+    width: 27px;
+    height: 3px;
+
+    background: #111;
+
+    border-radius: 20px;
+
+    transition: .35s ease;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.page-header {
+    text-align: center;
+
+    padding: 70px 20px 45px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fafafa 100%
+        );
+}
+
+.hero-badge {
+
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    border-radius: 30px;
+
+    background: #111;
+
+    color: #fff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 15px;
+}
+
+.page-header h1 {
+
+    margin: 0;
+
+    font-size: clamp(38px, 6vw, 65px);
+
+    font-weight: 950;
+
+    color: #111;
+
+    letter-spacing: -2px;
+}
+
+.page-header p {
+
+    margin-top: 12px;
+
+    color: #666;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   ID GRID
+========================================================= */
+
+.id-grid {
+
+    width: min(1250px, 94%);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+    padding-bottom: 70px;
+}
+
+
+/* =========================================================
+   BASE ID CARD
+========================================================= */
+
+.pfa-id-card {
+
+    position: relative;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.07);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    min-height: 390px;
+}
+
+.pfa-id-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.12);
+}
+
+
+/* =========================================================
+   NORMAL HEADER
+========================================================= */
+
+.pfa-id-card .id-header {
+
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    background: #111;
+
+    color: #fff;
+}
+
+.pfa-id-card .id-logo {
+
+    font-size: 20px;
+
+    font-weight: 950;
+
+    letter-spacing: 1px;
+}
+
+.pfa-id-card .id-header span {
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    opacity: .85;
+}
+
+
+/* =========================================================
+   ID BODY
+========================================================= */
+
+.pfa-id-card .id-body {
+
+    text-align: center;
+
+    padding: 30px 24px 25px;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.id-avatar {
+
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 17px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f2f2f2;
+
+    color: #111;
+
+    border: 3px solid #111;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    letter-spacing: .5px;
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+.pfa-id-card h2 {
+
+    margin: 0 auto;
+
+    max-width: 280px;
+
+    font-size: 20px;
+
+    line-height: 1.25;
+
+    color: #111;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ID NUMBER
+========================================================= */
+
+.id-number {
+
+    margin: 10px 0 22px;
+
+    color: #d71920;
+
+    font-family: monospace;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.id-details {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+.id-details > div {
+
+    padding: 12px 8px;
+
+    border-radius: 12px;
+
+    background: #f7f7f7;
+
+    border: 1px solid #eeeeee;
+}
+
+.id-details span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #888;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.id-details strong {
+
+    color: #111;
+
+    font-size: 13px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.pfa-id-card .id-footer {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    padding: 13px;
+
+    text-align: center;
+
+    background: #fafafa;
+
+    border-top: 1px solid #eeeeee;
+
+    color: #555;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   👑 OWNER CARD — PREMIUM STYLE
+========================================================= */
+
+.owner-card {
+
+    border: 2px solid #d4a017;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf5,
+            #ffffff
+        );
+
+    box-shadow:
+        0 10px 35px rgba(212,160,23,.16);
+}
+
+.owner-card:hover {
+
+    transform: translateY(-9px);
+
+    box-shadow:
+        0 20px 50px rgba(212,160,23,.25);
+}
+
+
+/* OWNER HEADER */
+
+.owner-card .id-header {
+
+    background:
+        linear-gradient(
+            135deg,
+            #111111,
+            #292929
+        );
+
+    border-bottom: 3px solid #d4a017;
+}
+
+
+/* OWNER LOGO */
+
+.owner-card .id-logo {
+
+    color: #f5c542;
+}
+
+
+/* OWNER OFFICIAL */
+
+.owner-card .id-header span {
+
+    color: #f5c542;
+}
+
+
+/* OWNER AVATAR */
+
+.owner-card .id-avatar {
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff5c2,
+            #f5c542
+        );
+
+    color: #111;
+
+    border: 4px solid #d4a017;
+
+    box-shadow:
+        0 5px 20px rgba(212,160,23,.25);
+}
+
+
+/* OWNER NAME */
+
+.owner-card h2 {
+
+    color: #111;
+
+}
+
+
+/* OWNER ID */
+
+.owner-card .id-number {
+
+    color: #a87900;
+}
+
+
+/* OWNER DETAILS */
+
+.owner-card .id-details > div {
+
+    background: #fffaf0;
+
+    border-color: #ead89b;
+}
+
+.owner-card .id-details strong {
+
+    color: #a87900;
+}
+
+
+/* OWNER FOOTER */
+
+.owner-card .id-footer {
+
+    background: #fff8df;
+
+    color: #8b6900;
+
+    border-top-color: #ead89b;
+}
+
+
+/* =========================================================
+   OWNER CROWN
+========================================================= */
+
+.owner-card::before {
+
+    content: "👑 OWNER";
+
+    position: absolute;
+
+    top: 48px;
+    right: -35px;
+
+    padding: 6px 40px;
+
+    background: #d4a017;
+
+    color: #111;
+
+    font-size: 9px;
+
+    font-weight: 950;
+
+    letter-spacing: 1px;
+
+    transform: rotate(45deg);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   💰 DONOR CARD — SUPPORTER STYLE
+========================================================= */
+
+.donor-card {
+
+    border: 2px solid #16834a;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4fff8,
+            #ffffff
+        );
+
+    box-shadow:
+        0 10px 35px rgba(22,131,74,.14);
+}
+
+.donor-card:hover {
+
+    transform: translateY(-9px);
+
+    box-shadow:
+        0 20px 50px rgba(22,131,74,.22);
+}
+
+
+/* DONOR HEADER */
+
+.donor-card .id-header {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0e3d27,
+            #16834a
+        );
+
+    border-bottom: 3px solid #55c982;
+}
+
+
+/* DONOR LOGO */
+
+.donor-card .id-logo {
+
+    color: #8df0b5;
+}
+
+
+/* DONOR OFFICIAL */
+
+.donor-card .id-header span {
+
+    color: #8df0b5;
+}
+
+
+/* DONOR AVATAR */
+
+.donor-card .id-avatar {
+
+    background:
+        linear-gradient(
+            145deg,
+            #d8ffe7,
+            #65d995
+        );
+
+    color: #075b31;
+
+    border: 4px solid #16834a;
+
+    box-shadow:
+        0 5px 20px rgba(22,131,74,.20);
+}
+
+
+/* DONOR ID */
+
+.donor-card .id-number {
+
+    color: #16834a;
+}
+
+
+/* DONOR DETAILS */
+
+.donor-card .id-details > div {
+
+    background: #f1fff6;
+
+    border-color: #bce8cd;
+}
+
+.donor-card .id-details strong {
+
+    color: #08703a;
+}
+
+
+/* DONOR FOOTER */
+
+.donor-card .id-footer {
+
+    background: #edfff4;
+
+    color: #08703a;
+
+    border-top-color: #bce8cd;
+}
+
+
+/* DONOR RIBBON */
+
+.donor-card::before {
+
+    content: "💰 DONOR";
+
+    position: absolute;
+
+    top: 48px;
+    right: -32px;
+
+    padding: 6px 38px;
+
+    background: #16834a;
+
+    color: #fff;
+
+    font-size: 9px;
+
+    font-weight: 950;
+
+    letter-spacing: 1px;
+
+    transform: rotate(45deg);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   INACTIVE CARD
+========================================================= */
+
+.inactive-card {
+
+    opacity: .72;
+
+    filter: grayscale(.25);
+}
+
+.inactive-card .id-header {
+
+    background: #555;
+}
+
+.inactive-card .id-avatar {
+
+    border-color: #777;
+
+    color: #777;
+}
+
+.inactive-card .id-number {
+
+    color: #777;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background: #111;
+
+    color: #fff;
+}
+
+.footer-logo {
+
+    font-size: 30px;
+
+    font-weight: 950;
+
+    color: #d71920;
+
+    margin-bottom: 8px;
+}
+
+footer p {
+
+    margin: 5px 0;
+
+    color: #aaa;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .id-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .pfa-navbar {
+
+        min-height: 65px;
+
+        padding: 0 16px;
+    }
+
+    .pfa-menu-toggle {
+
+        display: flex;
+    }
+
+    .pfa-navbar-links {
+
+        position: absolute;
+
+        top: 65px;
+
+        left: 0;
+
+        width: 100%;
+
+        padding: 12px 16px 18px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        background: rgba(255,255,255,.98);
+
+        box-shadow:
+            0 15px 35px rgba(0,0,0,.12);
+
+        border-bottom: 1px solid #ddd;
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform: translateY(-15px);
+
+        transition:
+            opacity .3s ease,
+            transform .3s ease,
+            visibility .3s ease;
+    }
+
+    .pfa-navbar-links.pfa-open {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform: translateY(0);
+    }
+
+    .pfa-navbar-links a {
+
+        width: 100%;
+
+        text-align: center;
+
+        padding: 13px;
+    }
+
+    .pfa-menu-toggle.pfa-active span:nth-child(1) {
+
+        transform:
+            translateY(8px)
+            rotate(45deg);
+    }
+
+    .pfa-menu-toggle.pfa-active span:nth-child(2) {
+
+        opacity: 0;
+    }
+
+    .pfa-menu-toggle.pfa-active span:nth-child(3) {
+
+        transform:
+            translateY(-8px)
+            rotate(-45deg);
+    }
+
+    .id-grid {
+
+        grid-template-columns: 1fr;
+
+        width: min(500px, 92%);
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .page-header {
+
+        padding-top: 50px;
+    }
+
+    .page-header h1 {
+
+        letter-spacing: -1px;
+    }
+
+    .pfa-id-card {
+
+        min-height: 380px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="pfa-navbar">
+
+    <a href="index.html" class="pfa-navbar-logo">
+        PFA
+    </a>
+
+
+    <nav class="pfa-navbar-links" id="pfaNavigation">
+
+        <a href="index.html">Home</a>
+
+        <a href="members.html">Members</a>
+
+        <a href="about.html">About</a>
+
+        <a href="notices.html">Notices</a>
+
+        <a href="member-id.html" class="active">
+            Member ID
+        </a>
+
+        <a href="galary.html">
+            Gallery
+        </a>
+
+        <a href="admin.html">
+            Admin
+        </a>
+
+        <a href="matches.html">
+            Matches
+        </a>
+
+        <a href="Tornamnets.html">
+            Tournaments
+        </a>
+
+    </nav>
+
+
+    <button
+        type="button"
+        class="pfa-menu-toggle"
+        id="pfaToggle"
+        aria-label="Toggle Menu">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+</header>
+
+
+<!-- =========================================================
+     PAGE HEADER
+========================================================= -->
+
+<section class="page-header">
+
+    <div class="hero-badge">
+        PFA IDENTIFICATION
+    </div>
+
+    <h1>
+        Member IDs
+    </h1>
+
+    <p>
+        Official PFA identification cards.
+    </p>
+
+</section>
+
+
+<!-- =========================================================
+     MEMBER ID SECTION
+========================================================= -->
+
+<section class="section">
+
+<div class="id-grid">
+
+
+<!-- =========================================================
+     ID 01 — OWNER
+========================================================= -->
+
+<div class="pfa-id-card owner-card">
+
+    <div class="id-header">
+
+        <div class="id-logo">
+            PFA
+        </div>
+
+        <span>
+            OFFICIAL
+        </span>
+
+    </div>
+
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            Flash
+        </div>
+
+        <h2>
+            DIPROJIT SARKAR SNIGDHO
+        </h2>
+
+        <p class="id-number">
+            PFA-20260828-7206
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>10</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>OWNER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 02 — OWNER
+========================================================= -->
+
+<div class="pfa-id-card owner-card">
+
+    <div class="id-header">
+
+        <div class="id-logo">PFA</div>
+
+        <span>OFFICIAL</span>
+
+    </div>
+
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            Strike
+        </div>
+
+        <h2>
+            ADITYA SHARUP PAUL
+        </h2>
+
+        <p class="id-number">
+            PFA-20260828-6210
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>41</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>OWNER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 03
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            Blaze
+        </div>
+
+        <h2>
+            PAPON SAHA
+        </h2>
+
+        <p class="id-number">
+            PFA-682619
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>07</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 04
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            Storm
+        </div>
+
+        <h2>
+            NILOY SEN
+        </h2>
+
+        <p class="id-number">
+            PFA-546729
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>16</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 05 — INACTIVE
+========================================================= -->
+
+<div class="pfa-id-card inactive-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            PFA
+        </div>
+
+        <h2>
+            MEMBER FIVE
+        </h2>
+
+        <p class="id-number">
+            PFA-000005
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>05</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>INACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 06
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            Frost
+        </div>
+
+        <h2>
+            KOUSHIK DASS
+        </h2>
+
+        <p class="id-number">
+            PFA-20260901-5191
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>37</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 07
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            Spark
+        </div>
+
+        <h2>
+            ANGKON PAUL
+        </h2>
+
+        <p class="id-number">
+            PFA-20260901-8396
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>48</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 08
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            Shadow
+        </div>
+
+        <h2>
+            ADITTO DATTA
+        </h2>
+
+        <p class="id-number">
+            PFA-20260901-1888
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>18</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 09
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            Force
+        </div>
+
+        <h2>
+            KOUSHIK DEBNATH
+        </h2>
+
+        <p class="id-number">
+            PFA-20260901-5867
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>24</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 10
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            Wave
+        </div>
+
+        <h2>
+            SAYON CHAKRABORTY
+        </h2>
+
+        <p class="id-number">
+            PFA-20260901-2096
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>42</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 11
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            PFA
+        </div>
+
+        <h2>
+            MEMBER ELEVEN
+        </h2>
+
+        <p class="id-number">
+            PFA-000011
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>11</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 12 — OWNER
+========================================================= -->
+
+<div class="pfa-id-card owner-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            Flame
+        </div>
+
+        <h2>
+            RESHOV PAL
+        </h2>
+
+        <p class="id-number">
+            PFA-20260901-6667
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>10</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>OWNER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 13
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            PFA
+        </div>
+
+        <h2>
+            MEMBER THIRTEEN
+        </h2>
+
+        <p class="id-number">
+            PFA-000013
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>13</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 14 — DONOR
+========================================================= -->
+
+<div class="pfa-id-card donor-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            Pride
+        </div>
+
+        <h2>
+            JUSTIN DELAUNEY
+        </h2>
+
+        <p class="id-number">
+            PFA-20260901-4485
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>49</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>DONOR</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>DONATION</span>
+                <strong>৳100</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 15
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            PFA
+        </div>
+
+        <h2>
+            MEMBER FIFTEEN
+        </h2>
+
+        <p class="id-number">
+            PFA-000015
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>15</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 16
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            PFA
+        </div>
+
+        <h2>
+            MEMBER SIXTEEN
+        </h2>
+
+        <p class="id-number">
+            PFA-000016
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>16</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 17
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            PFA
+        </div>
+
+        <h2>
+            MEMBER SEVENTEEN
+        </h2>
+
+        <p class="id-number">
+            PFA-000017
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>17</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 18
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            PFA
+        </div>
+
+        <h2>
+            MEMBER EIGHTEEN
+        </h2>
+
+        <p class="id-number">
+            PFA-000018
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>18</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 19
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            PFA
+        </div>
+
+        <h2>
+            MEMBER NINETEEN
+        </h2>
+
+        <p class="id-number">
+            PFA-000019
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>19</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ID 20
+========================================================= -->
+
+<div class="pfa-id-card">
+
+    <div class="id-header">
+        <div class="id-logo">PFA</div>
+        <span>OFFICIAL</span>
+    </div>
+
+    <div class="id-body">
+
+        <div class="id-avatar">
+            PFA
+        </div>
+
+        <h2>
+            MEMBER TWENTY
+        </h2>
+
+        <p class="id-number">
+            PFA-000020
+        </p>
+
+        <div class="id-details">
+
+            <div>
+                <span>ROLL</span>
+                <strong>20</strong>
+            </div>
+
+            <div>
+                <span>ROLE</span>
+                <strong>MEMBER</strong>
+            </div>
+
+            <div>
+                <span>STATUS</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div>
+                <span>ISSUED</span>
+                <strong>2026-2027</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="id-footer">
+        PEN FIGHT ASSOCIATION
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        PFA
+    </div>
+
+    <p>
+        Pen Fight Association
+    </p>
+
+    <p>
+        © 2026 PFA. All rights reserved.
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     NAVBAR JAVASCRIPT
+========================================================= -->
+
+<script>
+
+const pfaToggle =
+    document.getElementById("pfaToggle");
+
+const pfaNavigation =
+    document.getElementById("pfaNavigation");
+
+
+/* OPEN / CLOSE MENU */
+
+pfaToggle.addEventListener("click", function () {
+
+    pfaNavigation.classList.toggle("pfa-open");
+
+    pfaToggle.classList.toggle("pfa-active");
+
+});
+
+
+/* CLOSE AFTER LINK CLICK */
+
+pfaNavigation
+    .querySelectorAll("a")
+    .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            pfaNavigation.classList.remove(
+                "pfa-open"
+            );
+
+            pfaToggle.classList.remove(
+                "pfa-active"
+            );
+
+        });
+
+    });
+
+
+/* CLOSE WHEN CLICKING OUTSIDE */
+
+document.addEventListener("click", function(e) {
+
+    if (
+        !pfaNavigation.contains(e.target) &&
+        !pfaToggle.contains(e.target)
+    ) {
+
+        pfaNavigation.classList.remove(
+            "pfa-open"
+        );
+
+        pfaToggle.classList.remove(
+            "pfa-active"
+        );
+
+    }
+
+});
+
+
+/* CLOSE ON DESKTOP */
+
+window.addEventListener("resize", function() {
+
+    if (window.innerWidth > 800) {
+
+        pfaNavigation.classList.remove(
+            "pfa-open"
+        );
+
+        pfaToggle.classList.remove(
+            "pfa-active"
+        );
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
